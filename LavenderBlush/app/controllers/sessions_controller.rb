@@ -25,7 +25,11 @@ class SessionsController < ApplicationController
     def welcome
       @user = User.find(session[:user_id])
       @credentials = Credential.find_by(user_id: @user.id)
+    end
 
+    def logout
+      session[:user_id] = nil
+      redirect_to root_path
     end
 
 
