@@ -6,6 +6,7 @@ require 'rails_helper'  # keeps the file DRY so you don't have to refer back to 
 
 
 describe User do
+  let(:user
 
   describe '.validates' do
     # period indicates this is a class method while octothorp implies instance method
@@ -14,12 +15,12 @@ describe User do
     # but within each 'it' we have a clean slate so there is no interaction
     # between data for different tests
 
-    it 'is valid with a valid body' do
-      expect(User.new(name: "Fred Flintstone").valid?).to eq true
-      expect(User.new(name: "".valid?).to eq false)
+    it 'is valid with a valid name' do
+      expect(User.create(name: "Fred Flintstone").valid?).to eq true
+      expect(User.create(name: "").valid?).to eq false
     end
 
-    
+    it 'has valid credentials'
 
   end
 

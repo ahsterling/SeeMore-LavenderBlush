@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "/auth/:developer/callback", to: "sessions#create"
   get "/sessions/welcome", to: "sessions#welcome", as: :welcome
 
+  post "/sessions/logout", to: "sessions#logout", as: :logout
+
   root "home#index"
 
 end
