@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class = "search-box">
+    <%= form_tag twitter_search_path do %>
+      <%= text_field_tag :username %>
+      <%= submit_tag "Search Twitter" %>
+    <% end %>
+  </div>
 
 <%= yield %>
 

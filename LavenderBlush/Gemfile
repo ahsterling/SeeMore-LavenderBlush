@@ -1,11 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'httparty'
-gem 'omniauth'
 group :development, :test do
   gem 'rspec-rails'
   gem 'dotenv-rails'
 end
+
+gem 'omniauth'
+
+gem 'httparty'
+gem 'twitter'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record
@@ -35,7 +39,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
