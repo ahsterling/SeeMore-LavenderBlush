@@ -3,18 +3,26 @@
 <head>
   <title>LavenderBlush</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class = "search-box">
-    <%= form_tag twitter_search_path do %>
-      <%= text_field_tag :username %>
-      <%= submit_tag "Search Twitter" %>
-    <% end %>
+  <nav>
+    <div class="container">
+        <header>
+          <%= link_to "<h1>LavenderBlush</h1>".html_safe, root_path %>
+          <div class = "nav-search">
+            <%= render "shared/twitter_search" %>
+          </div>
+        </header>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <%= yield %>
+    </div>
   </div>
-
-<%= yield %>
-
 </body>
 </html>
