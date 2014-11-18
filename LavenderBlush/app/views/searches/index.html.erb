@@ -1,0 +1,5 @@
+<%= form_tag search_path, class: "form-inline" do %>
+  <%= text_field_tag :username, nil, class: "form-control" %>
+  <%= hidden_field_tag :provider, "twitter" %>
+  <%= submit_tag "Search Twitter", class: "btn btn-default" %>
+<% end %>

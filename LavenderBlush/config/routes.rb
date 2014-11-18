@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get "/twitter-search", to: "twitters#index", as: :twitter_search
-  post "/twitter-search", to: "twitters#search"
+  get  "/search",         to: "searches#index",   as: :search
+  post "/search",         to: "searches#results"
 
   post "/auth/:developer/callback", to: "session#create"
 
