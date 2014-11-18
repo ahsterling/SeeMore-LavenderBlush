@@ -5,10 +5,10 @@ class SearchesController < ApplicationController
   end
 
   def results
-    provider = params[:provider]
-    if provider == "twitter"
+    @provider = params[:provider]
+    if @provider == "Twitter"
       twitter_search
-    elsif provider == "vimeo"
+    elsif @provider == "Vimeo"
       # vimeo search here
     else
       redirect_to search_path
@@ -29,8 +29,9 @@ class SearchesController < ApplicationController
 
   def twitter_search
     client = twitter_client
-    @results = client.user_search(params[:username])
-    @bookis = client.user(8553052)
+    @results = client.user_search(params[:username], { count: 10 })
+    if @results.empty?
+      @bookis = client.user(8553052)
+    end
   end
-
 end

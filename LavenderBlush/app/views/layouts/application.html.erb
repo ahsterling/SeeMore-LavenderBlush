@@ -12,12 +12,8 @@
     <div class="container">
         <header>
           <%= link_to "<h1>LavenderBlush</h1>".html_safe, root_path %>
-          <div class = "search-box">
-            <%= form_tag search_path, class: "form-inline" do %>
-              <%= text_field_tag :username, nil, class: "form-control" %>
-              <%= hidden_field_tag :provider, "twitter" %>
-              <%= submit_tag "Search Twitter", class: "btn btn-default" %>
-            <% end %>
+          <div class = "nav-search">
+            <%= render "shared/twitter_search" %>
           </div>
         </header>
     </div>
