@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
 
+  rescue_from Twitter::Error::BadRequest, with: :empty_query
+
   def index
 
   end
@@ -33,5 +35,9 @@ class SearchesController < ApplicationController
     if @results.empty?
       @bookis = client.user(8553052)
     end
+  end
+
+  def empty_query
+    redirect_to search_path
   end
 end
