@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  post "/auth/:developer/callback", to: "session#create"
-  get "/sessions/welcome/:id", to: "session#welcome", as: :welcome
+  post "/auth/:developer/callback", to: "sessions#create"
+  get "/sessions/welcome", to: "sessions#welcome", as: :welcome
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

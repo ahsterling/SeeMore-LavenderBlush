@@ -1,10 +1,10 @@
-<h1>Welcome <%= @name %></h1>
+<h1>Welcome <%= @user.name %></h1>
 
 <p>
   You are logged on to Lavender Blush through your
-  <%= @provider.capitalize %> account.
+  <%= @credentials.provider.capitalize %> account.
 </p>
 
 <p>
-  Your email is <%= @email %> and your uid us <%= @uid %>.
+  Your email is <%= @user.email %> and your uid us <%= @credentials.uid %>.
 </p>
