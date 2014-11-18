@@ -1,0 +1,16 @@
+<%= form_tag twitter_search_path do %>
+  <%= text_field_tag :username %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
+
+<% @bookis_results.each do |result| %>
+  <div class="result">
+    <%= image_tag result.profile_image_uri(size = :bigger) %>
+    <p><%= link_to result.screen_name, "#{result.url}" %></p>
+    <p><%= result.description %></p>
+    <p><%= result.location %></p>
+    <p><%= result.followers_count %> followers</p>
+  </div>
+<% end %>
