@@ -26,10 +26,10 @@ describe SearchesController do
         expect(response.status).to_not eq 200
       end
 
-      # it 'catches no search query' do
-      #   post :results, username: "", provider: "Twitter"
-      #   expect(response.status).to eq 200
-      # end
+      it 'catches no search query' do
+        post :results, username: "", provider: "Twitter"
+        expect(response.status).to redirect_to(search_path)
+      end
     end
   end
 
