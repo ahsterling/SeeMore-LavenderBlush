@@ -18,7 +18,7 @@ class TwittersController < ApplicationController
       config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
     end
     @results = client.user_search(params[:username])
-    
+    @bookis = client.user(8553052)
   end
 
 end
