@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post "/search",         to: "searches#results"
 
 
-  post "/auth/:developer/callback", to: "session#create"
+  post "/auth/:developer/callback", to: "sessions#create"
   get "/sessions/welcome", to: "sessions#welcome", as: :welcome
 
   root "home#index"
