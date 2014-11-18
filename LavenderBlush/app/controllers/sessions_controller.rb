@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
               provider: auth_hash.provider,
               uid: auth_hash.uid)
         session[:user_id] = user.id
-
+        flash[:notice] = "You have logged in sucessfully!"
         redirect_to welcome_path
       else
         redirect_to root_path
@@ -23,12 +23,14 @@ class SessionsController < ApplicationController
 
 
     def welcome
+
       @user = User.find(session[:user_id])
       @credentials = Credential.find_by(user_id: @user.id)
     end
 
     def logout
       session[:user_id] = nil
+      flash[:notice] = "You have logged out successfully!"
       redirect_to root_path
     end
 
