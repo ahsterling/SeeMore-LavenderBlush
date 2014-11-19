@@ -24,4 +24,8 @@ describe Feed do
     end
   end
 
+  describe '#find_existing_feed' do
+    
+  end
+
 end

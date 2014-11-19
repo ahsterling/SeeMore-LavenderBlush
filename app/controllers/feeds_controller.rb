@@ -3,7 +3,7 @@ class FeedsController < ApplicationController
   def create
     feed_info = params[:add_form]
 
-    unless feed = Feed.find_by(provider: feed_info[:provider], provider_uid: feed_info[:provider_uid])
+    unless feed = Feed.find_existing_feed(feed_info)
       feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
       unless feed.save
         redirect_to search_path, notice: "Sorry, something went wrong - feed not saved :(" and return
@@ -17,5 +17,6 @@ class FeedsController < ApplicationController
       redirect_to search_path, notice: "Sorry, something went wrong - user_feed not saved :(" and return
     end
   end
+
 
 end
