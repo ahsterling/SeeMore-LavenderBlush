@@ -1,6 +1,16 @@
-nav {
+body {
+  padding-top: 70px;
+}
+
+body nav,
+.navbar-inverse {
   background-color: #FFF0F5;
   padding: 15px 0;
+  border-color: #CCC;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: #CCC;
 }
 
 nav h1 {
