@@ -4,6 +4,7 @@
 
   <div class = "search-box">
     <%= render "shared/twitter_search" %>
+    <%= render "shared/vimeo_search" %>
   </div>
 
   <div class="suggestions">
@@ -14,41 +15,62 @@
 
 <% else %>
 
-  <h3>Top 10 Results From <%= @provider %></h3>
+  <% if @provider == "Twitter" %>
+    <h3>Top 10 Results From <%= @provider %></h3>
 
-  <table class="table table-hover text-left">
-    <tr>
-      <th></th>
-      <th>Username</th>
-      <th>User Description</th>
-      <th>User Location</th>
-      <th>Followers</th>
-      <th>Add Feed</th>
-    </tr>
-    <% @results.each do |result| %>
+    <table class="table table-hover text-left">
       <tr>
-        <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
-        <td><%= link_to result.screen_name, "#{result.url}" %></td>
-        <td><%= result.description %></td>
-        <td><%= result.location %></td>
-        <td><%= result.followers_count %> followers</td>
-        <td>
-          <% if User.find(session[:user_id]).feeds.collect { |f| f.provider_uid }.include?(result.id) %>
-            <p>Already in Feed!</p>
-          <% else %>
-
-            <%= form_tag feeds_path do %>
-              <%= hidden_field_tag "add_form[handle]", result.screen_name %>
-              <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
-              <%= hidden_field_tag "add_form[provider]", @provider %>
-              <%= hidden_field_tag "add_form[provider_uid]", result.id %>
-              <%= submit_tag "Add Feed", class: "btn btn-info" %>
-            <% end %>
-
-          <% end %>
-        </td>
+        <th></th>
+        <th>Username</th>
+        <th>User Description</th>
+        <th>User Location</th>
+        <th>Followers</th>
+        <th>Add Feed</th>
       </tr>
-    <% end %>
-  </table>
+      <% @results.each do |result| %>
+        <tr>
+          <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
+          <td><%= link_to result.screen_name, "#{result.url}" %></td>
+          <td><%= result.description %></td>
+          <td><%= result.location %></td>
+          <td><%= result.followers_count %> followers</td>
+          <td>
+            <% if User.find(session[:user_id]).feeds.collect { |f| f.provider_uid }.include?(result.id) %>
+              <p>Already in Feed!</p>
+            <% else %>
+
+              <%= form_tag feeds_path do %>
+                <%= hidden_field_tag "add_form[handle]", result.screen_name %>
+                <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
+                <%= hidden_field_tag "add_form[provider]", @provider %>
+                <%= hidden_field_tag "add_form[provider_uid]", result.id %>
+                <%= submit_tag "Add Feed", class: "btn btn-info" %>
+              <% end %>
+
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  <% elsif @provider == "Vimeo" %>
+    <h3>Top Result From <%= @provider %></h3>
+
+    <table class="table table-hover text-left">
+      <tr>
+        <th></th>
+        <th>Username</th>
+        <th>User Location</th>
+        <th>Add Feed</th>
+      </tr>
+        <tr>
+          <td><%= image_tag @results["portrait_medium"], class: "img-circle" %></td>
+          <td><%= link_to @results["display_name"], "#{@results["url"]}" %></td>
+          <td><%= @results["location"]%></td>
+          <td></td>
+        </tr>
+    </table>
+
+  <% end %>
 
 <% end %>
