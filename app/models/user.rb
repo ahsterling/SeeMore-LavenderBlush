@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   has_many :feeds, through: :user_feeds
 
 
-  def has_feed?(result)
-    self.feeds.collect { |f| f.provider_uid }.include?(result.id)
+  def has_feed?(result_id)
+    self.feeds.collect { |f| f.provider_uid }.include?(result_id)
   end
 
 end
