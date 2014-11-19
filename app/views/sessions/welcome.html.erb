@@ -2,6 +2,9 @@
   <%= content_tag :div, msg, class: name %>
 <% end -%>
 
+<div class="search-box">
+  <%= render "shared/twitter_search" %>
+</div>
 
 <h1>Welcome <%= @user.name %></h1>
 
