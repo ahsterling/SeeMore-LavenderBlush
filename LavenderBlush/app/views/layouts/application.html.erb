@@ -20,26 +20,21 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "LavenderBlush", root_path, class: "navbar-brand" %>
+        <%= link_to "<h2>LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li>
-            <% if session[:user_id] != nil %>
-              <%= button_to "Logout", :logout, class: "btn btn-default" %>
-            <% else %>
-              <%= button_to "Sign In with Developer Account", "auth/developer", class: "btn btn-default" %>
-              <%= button_to "Sign Up with Developer Account", "auth/developer", class: "btn btn-default" %>
-            <% end %>
-          </li>
-          <li>
-            <%= render "shared/twitter_search" %>
-          </li>
-          <li>
-            <%= link_to "Lorem", "#" %>
-          </li>
+          <% if session[:user_id] != nil %>
+            <li><%= button_to "Logout", :logout, class: "btn btn-default" %></li>
+          <% else %>
+            <li><%= button_to "Sign In with Developer Account", "auth/developer", class: "btn btn-default" %></li>
+            <li><%= button_to "Sign Up with Developer Account", "auth/developer", class: "btn btn-default" %></li>
+          <% end %>
         </ul>
+        <div class="nav-search">
+          <%= render "shared/twitter_search" %>
+        </div>
       </div>
       <!-- /.navbar-collapse -->
     </div>
@@ -58,6 +53,6 @@
 
   </div>
   <!-- /.container -->
-  
+
 </body>
 </html>

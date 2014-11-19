@@ -1,5 +1,7 @@
+// colors: http://coolors.co/b4ddd1-c0c4bb-fff0f5-c0a0b6-665e68
+
 body {
-  padding-top: 70px;
+  padding-top: 100px;
 }
 
 body nav,
@@ -9,12 +11,39 @@ body nav,
   border-color: #CCC;
 }
 
-.navbar-inverse .navbar-toggle {
-  border-color: #CCC;
+.navbar-inverse a.navbar-brand {
+  color: #C0A0B6;
 }
 
-nav h1 {
-  display: inline-block;
+.navbar-inverse a.navbar-brand:hover {
+  color: #C0A0B6;
+  text-decoration: underline;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: #CCC;
+  background-color: #665E68;
+}
+
+.navbar-inverse .navbar-toggle:hover {
+  background-color: #C0A0B6;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #FFF0F5;
+}
+
+body .navbar-nav{
+  padding: 15px 0px;
+}
+
+body .navbar-nav>li {
+  padding-right: 10px;
+}
+
+nav h2 {
+  margin-top: 0;
 }
 
 .nav-search {
