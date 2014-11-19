@@ -16,11 +16,13 @@ class SessionsController < ApplicationController
                 provider: auth_hash.provider,
                 uid: auth_hash.uid)
 
-          session[:user_id] = user.id
-          flash[:notice] = "You have logged in sucessfully!"
+
+
           redirect_to welcome_path
         end
       else
+        session[:user_id] = user.id
+        flash[:notice] = "You have logged in sucessfully!"
         redirect_to root_path
       end
 
