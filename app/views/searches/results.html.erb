@@ -63,7 +63,7 @@
       </tr>
         <tr>
           <td><%= image_tag @results["portrait_medium"], class: "img-circle" %></td>
-          <td><%= link_to @results["display_name"], "#{@results["url"]}" %></td>
+          <td><%= link_to @results["display_name"], "#{@results['profile_url']}" %></td>
           <td><%= @results["location"]%></td>
           <td>
             <% if @user.has_feed?(@results["id"]) %>
