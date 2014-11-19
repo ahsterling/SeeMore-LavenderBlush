@@ -1,13 +1,12 @@
 // colors: http://coolors.co/b4ddd1-c0c4bb-fff0f5-c0a0b6-665e68
 
 body {
-  padding-top: 100px;
+  padding-top: 75px;
 }
 
 body nav,
 .navbar-inverse {
   background-color: #FFF0F5;
-  padding: 15px 0;
   border-color: #CCC;
 }
 
@@ -50,4 +49,15 @@ nav h2 {
   display: inline-block;
   float: right;
   padding: 15px 0px;
+}
+
+table {
+  margin-top: 30px;
+}
+
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 60px;
+  }
 }

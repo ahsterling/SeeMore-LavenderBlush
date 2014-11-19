@@ -14,15 +14,27 @@
 
 <% else %>
 
-  <h3>Top 10 Results for <%= @provider %></h3>
+  <h3>Top 10 Results From <%= @provider %></h3>
 
-  <% @results.each do |result| %>
-    <div class="result">
-      <%= image_tag result.profile_image_uri(size = :bigger) %>
-      <p><%= link_to result.screen_name, "#{result.url}" %></p>
-      <p><%= result.description %></p>
-      <p><%= result.location %></p>
-      <p><%= result.followers_count %> followers</p>
-    </div>
-  <% end %>
+  <table class="table table-hover text-left">
+    <tr>
+      <th></th>
+      <th>Username</th>
+      <th>User Description</th>
+      <th>User Location</th>
+      <th>Followers</th>
+      <th>Add Feed</th>
+    </tr>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
+        <td><%= link_to result.screen_name, "#{result.url}" %></td>
+        <td><%= result.description %></td>
+        <td><%= result.location %></td>
+        <td><%= result.followers_count %> followers</td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+
 <% end %>
