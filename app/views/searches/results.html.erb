@@ -33,12 +33,18 @@
         <td><%= result.location %></td>
         <td><%= result.followers_count %> followers</td>
         <td>
-          <%= form_tag feeds_path do %>
-            <%= hidden_field_tag :handle, result.screen_name %>
-            <%= hidden_field_tag :avatar, result.profile_image_uri(size = :bigger) %>
-            <%= hidden_field_tag :provider, @provider %>
-            <%= hidden_field_tag :provider_uid, result.id %>
-            <%= submit_tag "Add Feed", class: "btn btn-info" %>
+          <% if User.find(session[:user_id]).feeds.collect { |f| f.provider_uid }.include?(result.id) %>
+            <p>Already in Feed!</p>
+          <% else %>
+
+            <%= form_tag feeds_path do %>
+              <%= hidden_field_tag "add_form[handle]", result.screen_name %>
+              <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
+              <%= hidden_field_tag "add_form[provider]", @provider %>
+              <%= hidden_field_tag "add_form[provider_uid]", result.id %>
+              <%= submit_tag "Add Feed", class: "btn btn-info" %>
+            <% end %>
+
           <% end %>
         </td>
       </tr>

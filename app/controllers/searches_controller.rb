@@ -31,7 +31,7 @@ class SearchesController < ApplicationController
   end
 
   def twitter_search
-    client = twitter_client  
+    client = twitter_client
     # username is the variable twitter uses to represent the twitter handle
     # for their searches. user_search is a twitter method
     @results = client.user_search(params[:username], { count: 10 })
