@@ -6,7 +6,7 @@ require 'rails_helper'  # keeps the file DRY so you don't have to refer back to 
 
 
 describe User do
-  let(:user
+  # let(:user
 
   describe '.validates' do
     # period indicates this is a class method while octothorp implies instance method

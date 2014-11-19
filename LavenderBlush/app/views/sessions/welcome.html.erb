@@ -2,6 +2,7 @@
   <%= content_tag :div, msg, class: name %>
 <% end -%>
 
+
 <h1>Welcome <%= @user.name %></h1>
 
 <p>
@@ -9,6 +10,4 @@
   <%= @credentials.provider.capitalize %> account.
 </p>
 
-<p>
-  Your email is <%= @user.email %> and your uid us <%= @credentials.uid %>.
-</p>
+<p>Your email is <%= @user.email %> and your uid us <%= @credentials.uid %>.</p>

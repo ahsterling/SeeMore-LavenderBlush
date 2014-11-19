@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
               name: auth_hash.info.name,
               email: auth_hash.info.email)
       if user.save
-        credential = Credential.create(
+        Credential.create(
               user_id: user.id,
               provider: auth_hash.provider,
               uid: auth_hash.uid)
@@ -23,8 +23,7 @@ class SessionsController < ApplicationController
 
 
     def welcome
-
-      @user = User.find(session[:user_id])
+      @user = User.find_by(id: session[:user_id])
       @credentials = Credential.find_by(user_id: @user.id)
     end
 
@@ -33,6 +32,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "You have logged out successfully!"
       redirect_to root_path
     end
+
 
 
 
