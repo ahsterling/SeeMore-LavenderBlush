@@ -14,7 +14,12 @@
           <%= link_to "<h1>LavenderBlush</h1>".html_safe, root_path %>
           <div class = "nav-search">
             <%= render "shared/twitter_search" %>
-            <%= button_to "Logout", :logout %>
+            <% if session[:user_id] != nil %>
+              <%= button_to "Logout", :logout, class: "btn btn-default" %>
+            <% else %>
+              <%= button_to "Sign In with Developer Account", "auth/developer", class: "btn btn-default" %>
+              <%= button_to "Sign Up with Developer Account", "auth/developer", class: "btn btn-default" %>
+            <% end %>
           </div>
         </header>
     </div>
