@@ -12,11 +12,23 @@ class SearchesController < ApplicationController
     if @provider == "Twitter"
       twitter_search
     elsif @provider == "Vimeo"
-      # vimeo search here
+      vimeo_search
     else
       redirect_to search_path
     end
   end
+
+  # def results
+  #   @provider = params[:provider]
+  #   case @provider
+  #   when "Twitter"
+  #     twitter_search
+  #   when "Vimeo"
+  #     vimeo_search
+  #   else
+  #     redirect_to search_path
+  #   end
+  # end
 
 
   private
@@ -31,12 +43,19 @@ class SearchesController < ApplicationController
   end
 
   def twitter_search
-    client = twitter_client  
+    client = twitter_client
     # username is the variable twitter uses to represent the twitter handle
     # for their searches. user_search is a twitter method
     @results = client.user_search(params[:username], { count: 10 })
     if @results.empty?
       @bookis = client.user(8553052)
+    end
+  end
+
+  def vimeo_search
+    @results = Vimeo::Simple::User.info(params[:username]).parsed_response #returns single user
+    if @results.empty?
+      redirect_to search_path, notice: "Your search had no results."
     end
   end
 

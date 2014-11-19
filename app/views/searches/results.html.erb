@@ -4,6 +4,7 @@
 
   <div class = "search-box">
     <%= render "shared/twitter_search" %>
+    <%= render "shared/vimeo_search" %>
   </div>
 
   <div class="suggestions">
@@ -16,25 +17,44 @@
 
   <h3>Top 10 Results From <%= @provider %></h3>
 
-  <table class="table table-hover text-left">
-    <tr>
-      <th></th>
-      <th>Username</th>
-      <th>User Description</th>
-      <th>User Location</th>
-      <th>Followers</th>
-      <th>Add Feed</th>
-    </tr>
-    <% @results.each do |result| %>
-      <tr>
-        <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
-        <td><%= link_to result.screen_name, "#{result.url}" %></td>
-        <td><%= result.description %></td>
-        <td><%= result.location %></td>
-        <td><%= result.followers_count %> followers</td>
-        <td></td>
-      </tr>
-    <% end %>
-  </table>
+  <% if @provider == "Twitter" %>
 
-<% end %>
+      <table class="table table-hover text-left">
+        <tr>
+          <th></th>
+          <th>Username</th>
+          <th>User Description</th>
+          <th>User Location</th>
+          <th>Followers</th>
+          <th>Add Feed</th>
+        </tr>
+        <% @results.each do |result| %>
+          <tr>
+            <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
+            <td><%= link_to result.screen_name, "#{result.url}" %></td>
+            <td><%= result.description %></td>
+            <td><%= result.location %></td>
+            <td><%= result.followers_count %> followers</td>
+            <td></td>
+          </tr>
+        <% end %>
+      </table>
+
+  <% elsif @provider == "Vimeo" %>
+
+    <table class="table table-hover text-left">
+      <tr>
+        <th></th>
+        <th>Username</th>
+        <th>User Location</th>
+      </tr>
+        <tr>
+          <td><%= image_tag @results["portrait_medium"], class: "img-circle" %></td>
+          <td><%= link_to @results["display_name"], "#{@results["url"]}" %></td>
+          <td><%= @results["location"]%></td>
+        </tr>
+    </table>
+
+  <% end %>
+
+  <% end %>
