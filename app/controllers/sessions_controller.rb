@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :logged_in?, only: [:welcome]
 
     def create
       # Find or create a user here

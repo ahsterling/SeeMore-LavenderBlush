@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
 
   rescue_from Twitter::Error::BadRequest, with: :empty_query
+  before_action :logged_in?
 
   def index
 
