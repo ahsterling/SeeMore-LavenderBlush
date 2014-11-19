@@ -8,6 +8,7 @@ class SearchesController < ApplicationController
   end
 
   def results
+    @user = User.find(session[:user_id])
     @provider = params[:provider]
     if @provider == "Twitter"
       twitter_search

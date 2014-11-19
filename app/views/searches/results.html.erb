@@ -35,7 +35,7 @@
           <td><%= result.location %></td>
           <td><%= result.followers_count %> followers</td>
           <td>
-            <% if User.find(session[:user_id]).feeds.collect { |f| f.provider_uid }.include?(result.id) %>
+            <% if @user.has_feed?(result) %>
               <p>Already in Feed!</p>
             <% else %>
 
