@@ -18,17 +18,27 @@ describe SearchesController do
 
       it 'does not display results page with invalid provider' do
         post :results, username: "Bookis", provider: "foobar"
-        expect(response.status).to_not eq 200
+        expect(response).to redirect_to(search_path)
       end
 
       it 'does not display results page without provider' do
         post :results, username: "Bookis"
-        expect(response.status).to_not eq 200
+        expect(response).to redirect_to(search_path)
       end
 
       it 'catches no search query' do
         post :results, username: "", provider: "Twitter"
-        expect(response.status).to redirect_to(search_path)
+        expect(response).to redirect_to(search_path)
+      end
+
+      it 'sets @bookis if no results found' do
+        post :results, username: "aawegawg920j2vn8g2479913sj0x", provider: "Twitter"
+        expect(assigns(:bookis)).to be_a Twitter::User
+      end
+
+      it 'does not set @bookis if results found' do
+        post :results, username: "bookis", provider: "Twitter"
+        expect(assigns(:bookis)).to eq nil
       end
     end
   end
