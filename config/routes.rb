@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   post "/sessions/logout", to: "sessions#logout", as: :logout
 
+  get  "/feeds",           to: "feeds#index",     as: :feeds
+  post "/feeds",           to: "feeds#create"
+
   root "home#index"
 
 end

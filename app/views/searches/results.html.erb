@@ -32,7 +32,15 @@
         <td><%= result.description %></td>
         <td><%= result.location %></td>
         <td><%= result.followers_count %> followers</td>
-        <td></td>
+        <td>
+          <%= form_tag feeds_path do %>
+            <%= hidden_field_tag :handle, result.screen_name %>
+            <%= hidden_field_tag :avatar, result.profile_image_uri(size = :bigger) %>
+            <%= hidden_field_tag :provider, @provider %>
+            <%= hidden_field_tag :provider_uid, result.id %>
+            <%= submit_tag "Add Feed", class: "btn btn-info" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
