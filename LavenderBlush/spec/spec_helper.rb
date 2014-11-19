@@ -13,8 +13,59 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
+
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+# spec_helper.rb
+require 'rubygems'
+
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+  ENV["RAILS_ENV"] ||= 'test'
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+  # require 'rspec/autorun'
+
+  OmniAuth.config.test_mode = true
+
+  # OmniAuth.config.mock_auth[:developer] = OmniAuth::AuthHash.new({
+  #   :provider => 'developer',
+  #   :uid => '12345'
+  #   })
+  omniauth_hash = {"provider" => "developer",
+                    "uid" => "12345",
+                    "info" => {
+                      "name" => "Fred Flintstone",
+                      "email" => "fred@bedrock.com"
+                      }
+
+                    }
+
+  OmniAuth.config.add_mock(:developer, omniauth_hash)
+
+
 RSpec.configure do |config|
+
+
+  #from https://github.com/intridea/omniauth/wiki/Integration-Testing
+
+  ####################
+  # also see http://natashatherobot.com/rails-test-omniauth-sessions-controller/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
