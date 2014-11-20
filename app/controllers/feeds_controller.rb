@@ -26,7 +26,16 @@ class FeedsController < ApplicationController
     @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
   end
 
+  def feed
+    @user = User.find(session[:user_id])
+    @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
+    @videos.each do |video|
+      
+    end
+    @posts = @user.
 
+
+  end
 end
 
 
