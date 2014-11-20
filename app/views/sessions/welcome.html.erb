@@ -1,7 +1,8 @@
 
 <div class="search-box">
   <%= render "shared/twitter_search" %>
-
+</div>
+<div class = "search-box">
   <%= render "shared/vimeo_search" %>
 </div>
 
@@ -11,6 +12,15 @@
 <% @providers.each do |provider| %>
   <p><%= provider.titleize %></p>
 <% end %>
+
+<!-- This is a start for adding other accounts to your account... -->
+<div class="add-providers">
+  <p>Connect your other social media accounts:</p>
+
+  <% @new_providers.each do |p| %>
+  <p><%= p.titleize %></p>
+  <% end %>
+</div>
 
 <table class = "table table-hover text-left">
 
@@ -31,13 +41,3 @@
   <% end %>
 
 </table>
-
-
-<!-- This is a start for adding other accounts to your account... -->
-<div class="add-providers">
-  <p>Connect your other social media accounts:</p>
-
-  <% @new_providers.each do |p| %>
-    <p><%= p.titleize %></p>
-  <% end %>
-</div>
