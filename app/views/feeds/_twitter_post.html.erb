@@ -1,0 +1,13 @@
+<td><%= image_tag "twitter.png", class: "img-circle twitter" %></td>
+<td><%= image_tag object.feed.avatar, class: "img-circle" %></td>
+<td>
+  <div class="post-content">
+    <%= object.text_content %>
+  </div>
+  <% if object.media_url %>
+    <div class="post-image"><%= image_tag "#{object.media_url}:small" %></div>
+  <% end %>
+  <div class="post-date">
+    <%= object.date %>
+  </div>
+</td>
