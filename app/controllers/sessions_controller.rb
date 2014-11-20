@@ -30,12 +30,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @providers = Credential.where(user_id: @user.id).collect { |c| c.provider }
 
+    ## This is a start for adding other accounts to your account...
     possible_providers = ['developer', 'instagram']
-
     @providers.each do |p|
       possible_providers.delete(p)
     end
-
     @new_providers = possible_providers
   end
 
