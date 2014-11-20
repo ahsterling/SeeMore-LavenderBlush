@@ -28,9 +28,13 @@ class FeedsController < ApplicationController
 
   def feed
     @user = User.find(session[:user_id])
+    test_feed = Feed.create(handle: "perolovkindgren",
+                            provider: "Vimeo",
+                            provider_uid: 556981)
     @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
     @videos.each do |video|
-      
+      Post.create(:)
+
     end
     @posts = @user.
 
