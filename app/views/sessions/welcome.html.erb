@@ -7,9 +7,18 @@
 
 <h1>Welcome <%= @user.name %></h1>
 
-<p>
-  You are logged on to Lavender Blush through your
-  <%= @credentials.provider.capitalize %> account.
-</p>
+<div class="welcome-message">
+  <p>You are logged on to Lavender Blush through:</p>
 
-<p>Your email is <%= @user.email %> and your uid us <%= @credentials.uid %>.</p>
+  <% @providers.each do |provider| %>
+    <p><%= provider.titleize %></p>
+  <% end %>
+</div>
+
+<div class="add-providers">
+  <p>Connect your other social media accounts:</p>
+
+  <% @new_providers.each do |p| %>
+    <p><%= p.titleize %></p>
+  <% end %>
+</div>
