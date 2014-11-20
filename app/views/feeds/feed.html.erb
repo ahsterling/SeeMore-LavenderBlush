@@ -14,7 +14,11 @@
         <li>id = <%= post.id %></li>
         <li>title = <%= post.text_content.html_safe %></li>
         <li>upload_date = <%= post.date %></li>
-        <li><img src = <%= "#{post.media_url}" %> ></li>
+        
+        <li>
+        <% code = /https:\/\/vimeo\.com\/(\d+)/.match( post.media_url )[1] %>
+        <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="178" height="100" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </li>
         <li>source = <%= post.feed.provider %> </li>
       </ul>
 
