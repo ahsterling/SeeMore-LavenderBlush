@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post "/feeds",           to: "feeds#create"
 
   get "/feeds/vimeo",      to: "feeds#vimeo"
+  get "/feeds/twitter",    to: "feeds#twitter"
 
   root "home#index"
 
