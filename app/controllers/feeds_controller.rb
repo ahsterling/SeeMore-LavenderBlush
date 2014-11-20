@@ -28,12 +28,14 @@ class FeedsController < ApplicationController
     @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
   end
 
+
   def feed
     @user = User.find(session[:user_id])
+    ################ for test purposes ###########
     test_feed = Feed.create(handle: "perolovkindgren",
                             provider: "Vimeo",
                             provider_uid: 556981)
-    user_feed = UserFeed.create(feed_id: test_feed.id,
+    UserFeed.create(feed_id: test_feed.id,
                                 user_id: @user.id)
     @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
     @videos.each do |video|
@@ -41,12 +43,26 @@ class FeedsController < ApplicationController
                   text_content: video["description"],
                   media_url: video["thumbnail_medium"],
                   feed_id: test_feed.id)
-
     end
+    ################  ###########
     @posts = @user.posts
-
-
   end
+
+  def twitter # for testing, too!
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
+    end
+
+    @tweets = client.user_timeline(8553052)
+  end
+
+
+
+
+
 end
 
 
