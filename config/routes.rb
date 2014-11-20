@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post "/sessions/logout", to: "sessions#logout", as: :logout
 
-  get  "/feeds",           to: "feeds#index",     as: :feeds
+  get  "/feeds",           to: "feeds#feed",     as: :feeds
   post "/feeds",           to: "feeds#create"
 
   get "/feeds/vimeo",      to: "feeds#vimeo"
