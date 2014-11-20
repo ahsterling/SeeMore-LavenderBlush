@@ -5,7 +5,9 @@ class FeedsController < ApplicationController
 
     unless feed = Feed.find_existing_feed(feed_info)
       feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
-      unless feed.save
+      if feed.save
+        Post.new()
+      else
         redirect_to search_path, notice: "Sorry, something went wrong - feed not saved :(" and return
       end
     end
