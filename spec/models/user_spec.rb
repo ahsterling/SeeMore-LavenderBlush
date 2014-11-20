@@ -6,7 +6,7 @@ require 'rails_helper'  # keeps the file DRY so you don't have to refer back to 
 
 
 describe User do
-  
+
 
   describe '.validates' do
     # period indicates this is a class method while octothorp implies instance method
@@ -19,6 +19,22 @@ describe User do
 
 
 
+  end
+
+  describe '.has_feed?' do
+    let(:user) {User.create(name: "cat")}
+    let(:feed) {Feed.create(handle: "catz", provider: "Twitter", provider_uid: 123)}
+    let(:user_feed) {UserFeed.create(user_id: user.id, feed_id: feed.id)}
+
+    it 'is true if provided feed matches existing feeds' do
+      user_feed
+      expect(user.has_feed?(123)).to eq true
+    end
+
+    it 'is false if provided feed matches existing feeds' do
+      user_feed
+      expect(user.has_feed?(456)).to eq false
+    end
   end
 
 end
