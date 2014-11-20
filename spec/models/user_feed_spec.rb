@@ -22,4 +22,8 @@ describe UserFeed do
       expect(UserFeed.new(user_id: 123, feed_id: "blah").valid?).to eq false
     end
   end
+
+  describe "#find_existing_user_feeds" do
+
+  end
 end
