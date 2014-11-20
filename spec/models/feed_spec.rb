@@ -25,7 +25,20 @@ describe Feed do
   end
 
   describe '#find_existing_feed' do
-    
+
+    let(:feed_info) {{provider: 'Twitter', provider_uid: 123}}
+    let(:feed) {Feed.create(handle: "bookis", provider: "Twitter", provider_uid: 123)}
+
+    it 'returns the feed object' do
+      feed
+      expect(Feed.find_existing_feed(feed_info)).to be_a Feed
+    end
+
+    it 'finds the matching feed' do
+      feed
+      expect(Feed.find_existing_feed(feed_info).id).to eq feed.id
+    end
+
   end
 
 end
