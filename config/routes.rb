@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get  "/search",         to: "searches#index",   as: :search
   post "/search",         to: "searches#results"
 
-
+  get  "/auth/:developer/callback", to: "sessions#create"
   post "/auth/:developer/callback", to: "sessions#create"
 
   # For testing:

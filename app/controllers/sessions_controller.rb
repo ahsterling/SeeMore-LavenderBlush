@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
       # Find or create a user here
       # Sign that user in
       auth_hash = request.env['omniauth.auth']
-
       user = User.find_by(name: auth_hash.info.name)
+
       if user == nil
         user = User.new(
                 name: auth_hash.info.name,
@@ -16,16 +16,13 @@ class SessionsController < ApplicationController
                 user_id: user.id,
                 provider: auth_hash.provider,
                 uid: auth_hash.uid)
-
         else
           redirect_to root_path
         end
-
       end
-      session[:user_id] = user.id
-      flash[:notice] = "You have logged in sucessfully!"
-      redirect_to welcome_path
 
+      session[:user_id] = user.id
+      redirect_to welcome_path, notice: "You have logged in sucessfully!"
     end
 
 
