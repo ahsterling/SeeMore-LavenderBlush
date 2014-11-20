@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     # Find or create a user here
     # Sign that user in
     auth_hash = request.env['omniauth.auth']
-    user = User.find_by(name: auth_hash.info.name)
+    user = User.includes(:credentials).references(:credentials).where("credentials.provider = '#{auth_hash.provider}' AND credentials.uid = '#{auth_hash.uid}'").first
 
     if user == nil
       user = User.new(
