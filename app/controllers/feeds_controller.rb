@@ -33,12 +33,17 @@ class FeedsController < ApplicationController
     test_feed = Feed.create(handle: "perolovkindgren",
                             provider: "Vimeo",
                             provider_uid: 556981)
+    user_feed = UserFeed.create(feed_id: test_feed.id,
+                                user_id: @user.id)
     @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
     @videos.each do |video|
-      Post.create(:)
+      Post.create(date: video["upload_date"],
+                  text_content: video["description"],
+                  media_url: video["thumbnail_medium"],
+                  feed_id: test_feed.id)
 
     end
-    @posts = @user.
+    @posts = @user.posts
 
 
   end

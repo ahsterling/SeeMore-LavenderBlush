@@ -2,20 +2,23 @@
   and displays them in a list -->
 
 
-  <ul>
+
 
 
   <% @posts.each do |post| %>
 
-  <li>
+  <div class= <%="#{post.feed.provider}"%>  >
 
-  <div class= <%="#{post.source}"%>  >
-    <div class>
+      <ul>
+        <li><%= @user.name %></li>
+        <li>id = <%= post.id %></li>
+        <li>title = <%= post.text_content.html_safe %></li>
+        <li>upload_date = <%= post.date %></li>
+        <li><img src = <%= "#{post.media_url}" %> ></li>
+        <li>source = <%= post.feed.provider %> </li>
+      </ul>
 
-    
 
-    </div>
+
   </div>
-  </li>
-
-</ul>
+  <% end %>

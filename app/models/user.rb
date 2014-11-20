@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :user_feeds
   has_many :feeds, through: :user_feeds
+  has_many :posts, through: :feeds
 
 
   def has_feed?(result_id)
