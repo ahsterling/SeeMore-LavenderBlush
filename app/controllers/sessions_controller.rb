@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
         redirect_to root_path
       end
     end
-
     session[:user_id] = user.id
     redirect_to welcome_path, notice: "You have logged in sucessfully!"
   end
@@ -28,6 +27,7 @@ class SessionsController < ApplicationController
 
   def welcome
     @user = User.find_by(id: session[:user_id])
+    @posts = @user.posts.order(date: :desc).limit(50)
     @providers = Credential.where(user_id: @user.id).collect { |c| c.provider }
 
     ## This is a start for adding other accounts to your account...
