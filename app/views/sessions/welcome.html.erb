@@ -7,11 +7,6 @@
 
 <h1>Welcome <%= @user.name %></h1>
 
-<div class="welcome-message">
-  <p>You are logged on to Lavender Blush through:</p>
-
-
-<p>Your email is <%= @user.email %> and your uid us <%= @credentials.uid %>.</p>
 
 <% @posts.each do |post| %>
   <h3><%= post.feed.handle %></h3>
@@ -24,7 +19,7 @@
   <% @providers.each do |provider| %>
     <p><%= provider.titleize %></p>
   <% end %>
-</div>
+
 
 <!-- This is a start for adding other accounts to your account... -->
 <div class="add-providers">
