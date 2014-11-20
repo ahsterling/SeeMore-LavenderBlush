@@ -7,18 +7,30 @@
 
 <h1>Welcome <%= @user.name %></h1>
 
-
-<% @posts.each do |post| %>
-  <h3><%= post.feed.handle %></h3>
-  <p><%= post.media_url %></p>
-  <p><%= post.feed.provider %></p>
-  <p><%= post.text_content %></p>
-  <p><%= post.date %></p>
+<p>You are connected through:</p>
+<% @providers.each do |provider| %>
+  <p><%= provider.titleize %></p>
 <% end %>
 
-  <% @providers.each do |provider| %>
-    <p><%= provider.titleize %></p>
+<table class = "table table-hover text-left">
+
+
+
+  <% @posts.each do |post| %>
+
+  <tr class= "post-wrapper"  >
+    <% if post.feed.provider == "Twitter" %>
+
+    <%= render "feeds/twitter_post", object: post %>
+    <% elsif post.feed.provider == "Vimeo" %>
+    <%= render "feeds/vimeo_post", object: post %>
+
+    <% end %>
+  </tr>
+
   <% end %>
+
+</table>
 
 
 <!-- This is a start for adding other accounts to your account... -->
