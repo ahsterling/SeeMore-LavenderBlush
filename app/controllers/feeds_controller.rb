@@ -40,8 +40,8 @@ class FeedsController < ApplicationController
     @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
     @videos.each do |video|
       Post.create(date: video["upload_date"],
-                  text_content: video["description"],
-                  media_url: video["thumbnail_medium"],
+                  text_content: video["title"],
+                  media_url: video["url"],
                   feed_id: test_feed.id)
     end
     ################  ###########
