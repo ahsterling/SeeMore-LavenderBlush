@@ -1,8 +1,8 @@
 
 
-<td >
-  <img src="assets/vimeo-64.png" alt="vimeo-icon" class = "img-circle vimeo" />
-</td>
+
+  <td><%= image_tag "vimeo-64.png", class: "img-circle twitter" %></td>
+
 <td>
   <% code = /https:\/\/vimeo\.com\/(\d+)/.match( object.media_url )[1] %>
   <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="178" height="100" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
