@@ -1,0 +1,18 @@
+
+
+
+<% @videos.each do |video|  %>
+
+<ul>
+  <li>id = <%= video["id"] %></li>
+  <li>title = <%= video["title"] %></li>
+  <li>description = <%= video["description"].html_safe %></li>
+  <li>url = <%= video["url"] %></li>
+  <li>upload_date = <%= video["upload_date"] %></li>
+  <li><img src = <%= "#{video["thumbnail_medium"]}" %> ></li>
+  <% code = /https:\/\/vimeo\.com\/(\d+)/.match( video["url"] )[1] %>
+  <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="630" height="354" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+</ul>
+
+<% end %>

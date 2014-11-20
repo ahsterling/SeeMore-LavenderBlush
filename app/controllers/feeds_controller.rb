@@ -12,4 +12,15 @@ class FeedsController < ApplicationController
     redirect_to welcome_path, notice: "#{feed.handle} added to your feed!"
   end
 
+  def vimeo # for testing display
+    @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
+  end
+
 end
+
+
+
+#  @videos = Vimeo::Simple::User.all_videos("matthooks")
+#  @videos = Vimeo::Simple::User.all_videos("user1557244")
+#  @videos = Vimeo::Simple::User.all_videos("80781613")
+#  @videos = Vimeo::Simple::User.all_videos("perolovkindgren")

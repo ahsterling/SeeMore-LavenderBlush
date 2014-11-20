@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get  "/search",         to: "searches#index",   as: :search
   post "/search",         to: "searches#results"
-  
+
 
   post "/auth/:developer/callback", to: "sessions#create"
 
@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get  "/feeds",           to: "feeds#index",     as: :feeds
   post "/feeds",           to: "feeds#create"
+
+  get "/feeds/vimeo",      to: "feeds#vimeo"
 
   root "home#index"
 
