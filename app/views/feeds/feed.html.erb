@@ -11,9 +11,11 @@
 
   <tr class= "post-wrapper"  >
     <% if post.feed.provider == "Twitter" %>
+
       <%= render "twitter_post", object: post %>
     <% elsif post.feed.provider == "Vimeo" %>
       <%= render "vimeo_post", object: post %>
+
     <% end %>
   </tr>
 
