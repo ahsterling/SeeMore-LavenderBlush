@@ -16,3 +16,23 @@
 </ul>
 
 <% end %>
+
+<ul>
+
+  <% if post.feed.provider == "" %>
+  <li><%= @user.name %></li>
+  <li>id = <%= post.id %></li>
+  <li>title = <%= post.text_content.html_safe %></li>
+  <li>upload_date = <%= post.date %></li>
+
+  <% if post.feed.provider == "Vimeo" %>
+  <li>
+  <% code = /https:\/\/vimeo\.com\/(\d+)/.match( post.media_url )[1] %>
+  <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="178" height="100" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</li>
+  <% elsif post.feed.provider == "Twitter" %>
+    <li><img src = <%= post.media_url %> width = "178" height = "100" ></li>
+  <% end %>
+
+  <li>source = <%= post.feed.provider %> </li>
+</ul>

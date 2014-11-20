@@ -6,6 +6,7 @@ group :development, :test do
 end
 
 gem 'omniauth'
+gem 'omniauth-instagram'
 
 gem 'httparty'
 gem 'twitter'
