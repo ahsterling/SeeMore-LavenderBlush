@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
 
     def welcome
       @user = User.find_by(id: session[:user_id])
+      @posts = @user.posts.order(date: :desc).limit(50)
       @credentials = Credential.find_by(user_id: @user.id)
     end
 

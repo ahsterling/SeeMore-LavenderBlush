@@ -13,3 +13,11 @@
 </p>
 
 <p>Your email is <%= @user.email %> and your uid us <%= @credentials.uid %>.</p>
+
+<% @posts.each do |post| %>
+  <h3><%= post.feed.handle %></h3>
+  <p><%= post.media_url %></p>
+  <p><%= post.feed.provider %></p>
+  <p><%= post.text_content %></p>
+  <p><%= post.date %></p>
+<% end %>

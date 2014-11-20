@@ -6,43 +6,43 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-case Rails.env
-when "development"
-
-
-  feed_list = [
-    ["bookis", "Twitter", 8553052],
-    ["cuteemergency", "Twitter", 568825492],
-    ["fearlessideas", "Twitter", 84493112],
-    ["colemanfilm", "Vimeo", ]
-  ]
-
-  feed_list.each do |handle, provider, provider_uid|
-    Feed.create(handle: handle, provider: provider, provider_uid: provider_uid)
-    Post.create()
-  end
-
-  user_list = [
-    ["Veronica Mars", "veronica@mars.com"],
-    ["Fred Flintstone", "fred@bedrock.com"],
-    ["Buffy Summers", "buffy@sunnydale.com"],
-  ]
-
-  user_list.each do |name, email|
-    user = User.create(name: name, email: email)
-    Credential.create(user_id: user.id, provider: "Developer")
-  end
-
-  user_feed_list = [
-    [1, 1],
-    [2, 2],
-    [3, 3]
-  ]
-
-  user_feed_list.each do |user_id, feed_id|
-    UserFeed.create(user_id: user_id, feed_id: feed_id)
-  end
-end
+# case Rails.env
+# when "development"
+#
+#
+#   feed_list = [
+#     ["bookis", "Twitter", 8553052],
+#     ["cuteemergency", "Twitter", 568825492],
+#     ["fearlessideas", "Twitter", 84493112],
+#     ["colemanfilm", "Vimeo", ]
+#   ]
+#
+#   feed_list.each do |handle, provider, provider_uid|
+#     Feed.create(handle: handle, provider: provider, provider_uid: provider_uid)
+#     Post.create()
+#   end
+#
+#   user_list = [
+#     ["Veronica Mars", "veronica@mars.com"],
+#     ["Fred Flintstone", "fred@bedrock.com"],
+#     ["Buffy Summers", "buffy@sunnydale.com"],
+#   ]
+#
+#   user_list.each do |name, email|
+#     user = User.create(name: name, email: email)
+#     Credential.create(user_id: user.id, provider: "Developer")
+#   end
+#
+#   user_feed_list = [
+#     [1, 1],
+#     [2, 2],
+#     [3, 3]
+#   ]
+#
+#   user_feed_list.each do |user_id, feed_id|
+#     UserFeed.create(user_id: user_id, feed_id: feed_id)
+#   end
+# end
 
 # fred = User.create(name: "fredflintstone", email: "fred@bedrock.com")
 #
