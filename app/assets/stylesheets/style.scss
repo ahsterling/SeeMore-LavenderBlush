@@ -1,9 +1,16 @@
 // colors: http://coolors.co/b4ddd1-c0c4bb-fff0f5-c0a0b6-665e68
 
 body {
-  padding-top: 75px;
-  margin: 100px;
+  padding-top: 90px;
+
 }
+
+
+#home_page {
+  background-color: rgb(220,68,228);
+  margin: 0;
+}
+
 
 #cat {
   display: block;
@@ -16,9 +23,9 @@ body {
 #welcome {
   display: inline-block;
   position: center;
-  width: 30%;
+  width: 80%;
   color: white;
-  text-align: right;
+  text-align: center;
 }
 
 body nav,
