@@ -1,17 +1,17 @@
 
 
 
-  <td><%= image_tag "vimeo-64.png", class: "img-circle twitter" %></td>
+  <td><%= image_tag "vimeo-64.png", class: "img-circle vimeo" %></td>
 
 <td>
   <% code = /https:\/\/vimeo\.com\/(\d+)/.match( object.media_url )[1] %>
-  <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="178" height="100" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="356" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </td>
 <td>
   <div class="vimeo-text">
     <ul class = "vimeo-list">
       <li> <strong><%= object.text_content.html_safe %></strong> </li>
-      <li> <%= object.date %> </li>
+      <li> <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %> </li>
       <li> <%= object.feed.handle %> </li>
     </ul>
   </div>
