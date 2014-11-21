@@ -6,7 +6,7 @@ body {
 
 body nav,
 .navbar-inverse {
-  background-color: #FFF0F5;
+  background-color: purple;
   border-color: #CCC;
 }
 
@@ -70,6 +70,10 @@ table {
 
 
 .search-box {
+  display: inline-block;
+}
+
+.vimeo-description {
   display: inline-block;
 }
 
