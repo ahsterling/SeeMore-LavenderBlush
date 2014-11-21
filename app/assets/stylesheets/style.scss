@@ -11,11 +11,11 @@ body nav,
 }
 
 .navbar-inverse a.navbar-brand {
-  color: #C0A0B6;
+  color: #7F5261;
 }
 
 .navbar-inverse a.navbar-brand:hover {
-  color: #C0A0B6;
+  color: #7F5261;
   text-decoration: underline;
 }
 
@@ -60,13 +60,18 @@ table {
 }
 
 .vimeo {
-  background-color: purple
-  }
+  background-color: purple;
+}
 
 .vimeo-text li {
   list-style-type: none
 }
 
+
+
+.search-box {
+  display: inline-block;
+}
 
 
 @media (max-width: 767px) {
