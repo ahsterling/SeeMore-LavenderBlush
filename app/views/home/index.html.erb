@@ -1,4 +1,4 @@
-<div id="home_page">
+<div class = "home">
 
 
 
@@ -6,11 +6,14 @@
 <div id="welcome">
   <h2>Welcome to Lavender Blush</h2>
   <h3>...the softer side of social media...don't read anything you don't want</h3>
-  <%= button_to "Sign In with Vimeo", "auth/developer", class: "btn btn-default" %></li>
-  <%= button_to "Sign In with Github", "auth/developer", class: "btn btn-default" %></li>
-<%= button_to "Sign In with Twitter", "auth/developer", class: "btn btn-default" %></li>
-<%= button_to "Sign In with Instagram", "auth/developer", class: "btn btn-default" %></li>
+  <ul>
 
+<li>  <%= button_to "Sign In with Vimeo", "auth/developer", class: "btn btn-default" %></li>
+<li>  <%= button_to "Sign In with Github", "auth/developer", class: "btn btn-default" %></li>
+<li><%= button_to "Sign In with Twitter", "auth/developer", class: "btn btn-default" %></li>
+<li><%= button_to "Sign In with Instagram", "auth/instagram", class: "btn btn-default" %></li>
+
+</ul>
 </div>
 
 </div>
