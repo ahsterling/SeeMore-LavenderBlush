@@ -36,7 +36,11 @@
           <td><%= result.followers_count %> followers</td>
           <td>
             <% if @user.has_feed?(result.id) %>
-              <p>Already in Feed!</p>
+              <%= form_tag user_feeds_path, method: :delete do %>
+                <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
+                <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
+              <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
                 <%= hidden_field_tag "add_form[handle]", result.screen_name %>
@@ -67,7 +71,11 @@
           <td><%= @results["location"]%></td>
           <td>
             <% if @user.has_feed?(@results["id"]) %>
-              <p>Already in Feed!</p>
+              <%= form_tag user_feeds_path, method: :delete do %>
+                <%= hidden_field_tag "delete_button[provider]", "Vimeo" %>
+                <%= hidden_field_tag "delete_button[provider_uid]", @results["id"].to_i  %>
+                <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
                 <%= hidden_field_tag "add_form[handle]", @results["display_name"] %>

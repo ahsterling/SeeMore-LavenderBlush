@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user_feeds/destroy'
+
   get  "/search",         to: "searches#index",   as: :search
   post "/search",         to: "searches#results"
 
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
 
   get "/feeds/vimeo",      to: "feeds#vimeo"
   get "/feeds/twitter",    to: "feeds#twitter"
+
+  delete "/user_feeds",        to: "user_feeds#destroy", as: :user_feeds
 
   root "home#index"
 
