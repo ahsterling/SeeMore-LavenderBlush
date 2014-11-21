@@ -1,21 +1,51 @@
 // colors: http://coolors.co/b4ddd1-c0c4bb-fff0f5-c0a0b6-665e68
 
 body {
-  padding-top: 75px;
+  padding-top: 90px;
+
+}
+
+
+#home_page {
+  background-color: rgb(220,68,228);
+  margin: 0;
+}
+
+
+#cat {
+  display: block;
+  width: auto;
+  float: left;
+}
+#blush{
+  display: inline-block;
+}
+#welcome {
+  display: inline-block;
+  position: center;
+  width: 80%;
+  color: white;
+  text-align: center;
 }
 
 body nav,
 .navbar-inverse {
-  background-color: purple;
+  background-color: rgb(220,68,228);
   border-color: #CCC;
+
+
 }
 
 .navbar-inverse a.navbar-brand {
   color: #7F5261;
+  color: white;
+
+
 }
 
 .navbar-inverse a.navbar-brand:hover {
   color: #7F5261;
+  color: pink;
   text-decoration: underline;
 }
 
@@ -76,6 +106,7 @@ table {
 .vimeo-description {
   display: inline-block;
 }
+
 
 
 @media (max-width: 767px) {
