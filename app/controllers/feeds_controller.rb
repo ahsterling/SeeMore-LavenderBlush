@@ -81,10 +81,6 @@ class FeedsController < ApplicationController
     end
   end
 
-
-
-
-
 end
 
 
