@@ -40,7 +40,7 @@ body {
   .btn {
     background-color: purple;
     color: white;
-    border:solid purple 1em;
+    border:solid purple;
     border-radius: 1em;
     font-size: 20px;
   }
@@ -54,6 +54,19 @@ body nav,
 
 }
 
+
+.navbar-header {
+  .btn {
+
+    background-color: purple;
+    color: white;
+    font-size: 1em;
+    border: solid purple;
+    border-radius: 1em;
+
+
+  }
+}
 .navbar-inverse a.navbar-brand {
   color: #7F5261;
   color: white;
@@ -91,7 +104,7 @@ body .navbar-nav>li {
 
 nav h2 {
   margin-top: 0;
-  
+
 }
 
 .nav-search {
