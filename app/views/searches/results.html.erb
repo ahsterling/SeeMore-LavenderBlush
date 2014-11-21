@@ -10,7 +10,7 @@
   <div class="suggestions">
     <p>Looking for a suggestion?</p>
     <%= image_tag @bookis.profile_image_uri(size = :bigger), class: "img-circle" %>
-    <%= link_to @bookis.screen_name, "#{@bookis.url}" %>
+    <%= link_to @bookis.screen_name, "#{@bookis.url}", target: "_blank" %>
   </div>
 
 <% else %>

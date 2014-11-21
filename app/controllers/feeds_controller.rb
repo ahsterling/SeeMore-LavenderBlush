@@ -1,9 +1,7 @@
 class FeedsController < ApplicationController
 
   def create
-    feed_info = params[:add_form]
-
-    unless feed = Feed.find_existing_feed(feed_info)
+    unless feed = Feed.find_existing_feed(params[:add_form])
       feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
       if feed.save
         get_posts(feed)
@@ -24,23 +22,8 @@ class FeedsController < ApplicationController
     end
   end
 
-  def vimeo # for testing display
-    @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
-  end
 
 
-
-
-  def twitter # for testing, too!
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
-      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-      config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
-    end
-
-    @tweets = client.user_timeline(8553052)
-  end
 
   def get_posts(feed)
     if feed.provider == "Twitter"
@@ -65,10 +48,3 @@ class FeedsController < ApplicationController
   end
 
 end
-
-
-
-#  @videos = Vimeo::Simple::User.all_videos("matthooks")
-#  @videos = Vimeo::Simple::User.all_videos("user1557244")
-#  @videos = Vimeo::Simple::User.all_videos("80781613")
-#  @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
