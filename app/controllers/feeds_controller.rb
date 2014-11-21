@@ -1,6 +1,11 @@
 class FeedsController < ApplicationController
 
   def create
+    # feed = Feed.find_existing_feed(params[:add_form])
+    #
+    # if !feed
+
+
     unless feed = Feed.find_existing_feed(params[:add_form])
       feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
       if feed.save
@@ -22,7 +27,9 @@ class FeedsController < ApplicationController
     end
   end
 
-
+  # def create_feed(params)
+  #
+  # end
 
 
   def get_posts(feed)
