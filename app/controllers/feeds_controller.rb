@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
 
   def create
     unless feed = Feed.find_existing_feed(params[:add_form])
-      feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
+      feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar, :display_name))
       if feed.save
         get_posts(feed)
       else
@@ -15,7 +15,7 @@ class FeedsController < ApplicationController
     else
       user_feed = UserFeed.new(user_id: session[:user_id], feed_id: feed.id)
       if user_feed.save
-        redirect_to welcome_path, notice: "#{feed.handle} added to your feed!" and return
+        redirect_to welcome_path, notice: "#{feed.display_name} added to your feed!" and return
       else
         redirect_to search_path, notice: "Sorry, something went wrong - user_feed not saved :(" and return
       end
