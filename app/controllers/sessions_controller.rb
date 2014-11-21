@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       end
     end
     session[:user_id] = user.id
-    redirect_to welcome_path, notice: "You have logged in sucessfully!"
+    redirect_to welcome_path, notice: "You have been successfully signed in."
   end
 
 
@@ -40,6 +40,6 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to root_path, notice: "You have logged out successfully!"
+    redirect_to root_path, notice: "You have been successfully signed out."
   end
 end
