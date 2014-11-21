@@ -1,38 +1,49 @@
 class FeedsController < ApplicationController
 
-  def create
-    feed = Feed.find_existing_feed(params[:add_form])
+  class FeedError < RuntimeError; end
 
+  rescue_from FeedsController::FeedError, with: :redirect_to_search
+
+  def create
     if feed = Feed.find_existing_feed(params[:add_form])
-      create_user_feed(feed)
+      add_existing_feed(feed)
     else
-      feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
-      if feed.save
-        get_posts(feed)
-      else
-        redirect_to search_path, notice: "Sorry, something went wrong - feed not saved :(" and return
-      end
-      create_user_feed(feed)
+      feed = create_feed(params)
+      create_user_feed_and_posts(feed)
     end
   end
 
 
   private
 
-  def create_user_feed(feed)
+  def add_existing_feed(feed)
     if UserFeed.find_existing_user_feed(session, feed)
-      redirect_to search_path, notice: "Sorry, something went wrong - user feed exists already" and return
+      raise FeedError.new
     else
-      user_feed = UserFeed.new(user_id: session[:user_id], feed_id: feed.id)
-      if user_feed.save
-        redirect_to welcome_path, notice: "#{feed.handle} added to your feed!" and return
-      else
-        redirect_to search_path, notice: "Sorry, something went wrong - user_feed not saved :(" and return
-      end
+      create_user_feed_and_posts(feed)
     end
   end
 
-  def get_posts(feed)
+  def create_feed(params)
+    feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
+    if feed.save
+      feed
+    else
+      raise FeedError.new
+    end
+  end
+
+  def create_user_feed_and_posts(feed)
+    user_feed = UserFeed.new(user_id: session[:user_id], feed_id: feed.id)
+    if user_feed.save
+      get_new_feed_posts(feed)
+      redirect_to welcome_path, notice: "#{feed.handle} added to your feed!"
+    else
+      raise FeedError.new
+    end
+  end
+
+  def get_new_feed_posts(feed)
     if feed.provider == "Twitter"
       client = Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
@@ -52,6 +63,10 @@ class FeedsController < ApplicationController
           feed_id: feed.id)
       end
     end
+  end
+
+  def redirect_to_search
+    redirect_to search_path, notice: "Something went wrong! :("
   end
 
 end
