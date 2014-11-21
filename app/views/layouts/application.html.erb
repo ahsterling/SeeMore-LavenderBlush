@@ -20,7 +20,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "<h2>LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
+
+        <% if session[:user_id] == nil %>
+        <span id="cat"><%= image_tag "lavender_blush.png", width: "240px", height: "180px" %></span>
+        <%= link_to "<h2 >LavenderBlush </em></h2>".html_safe, root_path, class: "navbar-brand" %>
+        <% else %>
+        <span id="cat"><%= image_tag "lavender_blush.png", width: "80px", height: "60px" %></span>
+        <%= link_to "<h2 >LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
+        <% end %>
+
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
