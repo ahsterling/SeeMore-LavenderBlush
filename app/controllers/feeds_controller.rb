@@ -1,20 +1,25 @@
 class FeedsController < ApplicationController
 
   def create
-    # feed = Feed.find_existing_feed(params[:add_form])
-    #
-    # if !feed
+    feed = Feed.find_existing_feed(params[:add_form])
 
-
-    unless feed = Feed.find_existing_feed(params[:add_form])
+    if feed = Feed.find_existing_feed(params[:add_form])
+      create_user_feed(feed)
+    else
       feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
       if feed.save
         get_posts(feed)
       else
         redirect_to search_path, notice: "Sorry, something went wrong - feed not saved :(" and return
       end
+      create_user_feed(feed)
     end
+  end
 
+
+  private
+
+  def create_user_feed(feed)
     if UserFeed.find_existing_user_feed(session, feed)
       redirect_to search_path, notice: "Sorry, something went wrong - user feed exists already" and return
     else
@@ -26,11 +31,6 @@ class FeedsController < ApplicationController
       end
     end
   end
-
-  # def create_feed(params)
-  #
-  # end
-
 
   def get_posts(feed)
     if feed.provider == "Twitter"
