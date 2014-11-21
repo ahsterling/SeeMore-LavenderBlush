@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LavenderBlush</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+
+
+      <% if session[:user_id] == nil %>
+      <span id="cat"><%= image_tag "lavender_blush.png", width: "240px", height: "180px" %></span>
+      <div id="welcome">
+      <h2>Welcome to Lavender Blush</h2>
+      <h3><em>...making media networking effortless...</em></h3></div>
+      <% else %>
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <!-- <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> -->
+
+
+        <span id="cat"><%= image_tag "lavender_blush.png", width: "80px", height: "60px" %></span>
+        <%= link_to "<h2 >LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
+        <% end %>
+
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> -->
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <div class="nav navbar-nav">
+          <% if session[:user_id] != nil %>
+            <%= button_to "Logout", :logout, class: "btn btn-default" %></li>
+          <% else %>
+            <%= button_to "Sign In with Vimeo", "auth/developer", class: "btn btn-default" %></li>
+            <%= button_to "Sign In with Github", "auth/developer", class: "btn btn-default" %></li>
+          <%= button_to "Sign In with Twitter", "auth/developer", class: "btn btn-default" %></li>
+        <%= button_to "Sign In with Instagram", "auth/developer", class: "btn btn-default" %></li>
+
+          <% end %>
+        </div>
+
+
+          </div>
+
+      <!-- </div> -->
+      <!-- /.navbar-collapse -->
+
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: name %>
+        <% end -%>
+        <%= yield %>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+</body>
+</html>
