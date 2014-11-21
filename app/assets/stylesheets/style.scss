@@ -59,17 +59,18 @@ table {
   background-color: #00aced;
 }
 
+.vimeo {
+  background-color: purple
+  }
+
+.vimeo-text li {
+  list-style-type: none
+}
+
+
 
 @media (max-width: 767px) {
   body {
     padding-top: 60px;
   }
-
-.vimeo {
-  background-color: purple
-  }
-
-.vimeo-list li {
-  list-style-type: none
-}
 }

@@ -1,4 +1,4 @@
-
+This file hold methods for testing only and won't work
 
 
 <% @videos.each do |video|  %>
@@ -36,3 +36,23 @@
 
   <li>source = <%= post.feed.provider %> </li>
 </ul>
+
+
+def feed
+  @user = User.find(session[:user_id])
+  ################ for test purposes ###########
+  test_feed = Feed.create(handle: "billfulton",
+                          provider: "Vimeo",
+                          provider_uid: 34517011)
+  UserFeed.create(feed_id: test_feed.id,
+                              user_id: @user.id)
+  @videos = Vimeo::Simple::User.all_videos("billfulton")[0,5]
+  @videos.each do |video|
+    Post.create(date: video["upload_date"],
+                text_content: video["title"],
+                media_url: video["url"],
+                feed_id: test_feed.id)
+  end
+  ################  ###########
+  @posts = @user.posts[0,5]
+end

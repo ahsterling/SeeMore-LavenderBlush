@@ -3,13 +3,14 @@
 
   <td><%= image_tag "vimeo-64.png", class: "img-circle vimeo" %></td>
 
-<td>
-  <% code = /https:\/\/vimeo\.com\/(\d+)/.match( object.media_url )[1] %>
-  <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="356" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</td>
+  <td><%= image_tag object.feed.avatar, class: "img-circle" %></td>
+
 <td>
   <div class="vimeo-text">
-    <ul class = "vimeo-list">
+    <% code = /https:\/\/vimeo\.com\/(\d+)/.match( object.media_url )[1] %>
+    <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="356" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+    <ul >
       <li> <strong><%= object.text_content.html_safe %></strong> </li>
       <li> <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %> </li>
       <li> <%= object.feed.handle %> </li>
