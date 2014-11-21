@@ -1,7 +1,8 @@
 // colors: http://coolors.co/b4ddd1-c0c4bb-fff0f5-c0a0b6-665e68
 
 body {
-  padding-top: 200px;
+  padding-top: 75px;
+  margin: 100px;
 }
 
 #cat {
@@ -12,11 +13,19 @@ body {
 #blush{
   display: inline-block;
 }
+#welcome {
+  display: inline-block;
+  position: center;
+  width: 30%;
+  color: white;
+  text-align: right;
+}
 
 body nav,
 .navbar-inverse {
   background-color: rgb(220,68,228);
   border-color: #CCC;
+
 
 }
 
