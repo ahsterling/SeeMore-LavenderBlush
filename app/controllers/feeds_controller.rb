@@ -1,9 +1,8 @@
 class FeedsController < ApplicationController
 
   def create
-    feed_info = params[:add_form]
 
-    unless feed = Feed.find_existing_feed(feed_info)
+    unless feed = Feed.find_existing_feed(params[:add_form])
       feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
       if feed.save
         get_posts(feed)
@@ -24,40 +23,16 @@ class FeedsController < ApplicationController
     end
   end
 
-  def vimeo # for testing display
-    @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
-  end
-
-
-  def feed
-    @user = User.find(session[:user_id])
-    ################ for test purposes ###########
-    test_feed = Feed.create(handle: "perolovkindgren",
-                            provider: "Vimeo",
-                            provider_uid: 556981)
-    UserFeed.create(feed_id: test_feed.id,
-                                user_id: @user.id)
-    @videos = Vimeo::Simple::User.all_videos("perolovkindgren")[0,5]
-    @videos.each do |video|
-      Post.create(date: video["upload_date"],
-                  text_content: video["title"],
-                  media_url: video["url"],
-                  feed_id: test_feed.id)
-    end
-    ################  ###########
-    @posts = @user.posts[0,5]
-  end
-
-  def twitter # for testing, too!
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
-      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-      config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
-    end
-
-    @tweets = client.user_timeline(8553052)
-  end
+  # def find_or_create_feed(params)
+  #   unless feed = Feed.find_existing_feed(params[:add_form])
+  #     feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
+  #     if feed.save
+  #       get_posts(feed)
+  #     else
+  #       redirect_to search_path, notice: "Sorry, something went wrong - feed not saved :(" and return
+  #     end
+  #   end
+  # end
 
   def get_posts(feed)
     if feed.provider == "Twitter"
@@ -80,9 +55,43 @@ class FeedsController < ApplicationController
       end
     end
   end
-
 end
 
+
+# def vimeo # for testing display
+#   @videos = Vimeo::Simple::User.all_videos("perolovkindgren")
+# end
+#
+#
+# def feed
+#   @user = User.find(session[:user_id])
+#   ################ for test purposes ###########
+#   test_feed = Feed.create(handle: "perolovkindgren",
+#   provider: "Vimeo",
+#   provider_uid: 556981)
+#   UserFeed.create(feed_id: test_feed.id,
+#   user_id: @user.id)
+#   @videos = Vimeo::Simple::User.all_videos("perolovkindgren")[0,5]
+#   @videos.each do |video|
+#     Post.create(date: video["upload_date"],
+#     text_content: video["title"],
+#     media_url: video["url"],
+#     feed_id: test_feed.id)
+#   end
+#   ################  ###########
+#   @posts = @user.posts[0,5]
+# end
+#
+# def twitter # for testing, too!
+#   client = Twitter::REST::Client.new do |config|
+#     config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+#     config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+#     config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+#     config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
+#   end
+#
+#   @tweets = client.user_timeline(8553052)
+# end
 
 
 #  @videos = Vimeo::Simple::User.all_videos("matthooks")
