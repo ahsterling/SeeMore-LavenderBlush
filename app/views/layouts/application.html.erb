@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class = " <%= "home_page" if session[:user_id] == nil %> ">
 
   <% if session[:user_id] != nil %>
   <!-- Navigation -->
