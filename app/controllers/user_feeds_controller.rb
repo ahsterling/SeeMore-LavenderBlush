@@ -1,7 +1,6 @@
 class UserFeedsController < ApplicationController
 
   def destroy
-    
     if params[:delete_button][:provider] == "Twitter"
       delete_user_feed("Twitter")
     elsif params[:delete_button][:provider] == "Vimeo"
