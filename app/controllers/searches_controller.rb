@@ -61,8 +61,10 @@ class SearchesController < ApplicationController
   end
 
   def vimeo_search
-    
-    @results = Vimeo::Simple::User.info(params[:username]).parsed_response #returns single user
+
+
+    # @results = Vimeo::Simple::User.info(params[:username]).parsed_response #returns single user
+    @results = Beemo::User.search(params[:username])
     if @results.empty?
       redirect_to search_path, notice: "Your search had no results."
     end
