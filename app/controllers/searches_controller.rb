@@ -43,13 +43,6 @@ class SearchesController < ApplicationController
     end
   end
 
-  # def vimeo_client
-  #   base = Vimeo::Advanced::Base.new("VIMEO_CONSUMER_KEY", "VIMEO_CONSUMER_SECRET")
-  #   request_token = base.get_request_token
-  #   session[:oauth_secret] = request_token.secret
-  #   redirect_to base.authorize_url
-  # end
-
   def twitter_search
     client = twitter_client
     # username is the variable twitter uses to represent the twitter handle
@@ -61,12 +54,15 @@ class SearchesController < ApplicationController
   end
 
   def vimeo_search
-
-
-    # @results = Vimeo::Simple::User.info(params[:username]).parsed_response #returns single user
-    @results = Beemo::User.search(params[:username])
+    beemos = Beemo::User.search(params[:username])
+    @results = []
+    beemos.each do |beemo|
+      @results << Vimeo::Simple::User.info(beemo.uid)
+    end
     if @results.empty?
       redirect_to search_path, notice: "Your search had no results."
+    else
+      return results
     end
   end
 
