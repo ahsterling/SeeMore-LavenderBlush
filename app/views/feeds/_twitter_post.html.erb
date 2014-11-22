@@ -3,13 +3,13 @@
 <td><%= link_to image_tag(object.feed.avatar, class: "img-circle"), object.feed.profile_url, target: "_blank" %></td>
 
 <td>
-  <a href="<% object.post_url %>" target= "_blank">
+  <a href= '<%= object.post_url %>' target= "_blank">
     <div class = "post-content-wrapper">
       <div class="post-content">
         <%= object.text_content %>
       </div>
       <% if object.media_url %>
-        <div class="post-image"><%= image_tag "#{object.media_url}:small" %></div>
+        <div class="post-image"><%= image_tag "#{object.media_url}:small", class: "img img-rounded" %></div>
       <% end %>
       <div class="post-date">
         <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %>
