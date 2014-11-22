@@ -42,6 +42,7 @@ group :development do
 end
 
 gem 'vimeo'
+gem 'omniauth-vimeo'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
