@@ -2,6 +2,7 @@ class FeedsController < ApplicationController
 
   class FeedError < RuntimeError; end
 
+  before_action :logged_in?, only: [:create]
   rescue_from FeedsController::FeedError, with: :redirect_to_search
 
   def create
