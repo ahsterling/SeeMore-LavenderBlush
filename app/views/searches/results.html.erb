@@ -43,7 +43,7 @@
                 <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
-                <%= hidden_field_tag "add_form[display_name]", result.name %>
+                <%= hidden_field_tag "add_form[profile_url]", result.website %>
                 <%= hidden_field_tag "add_form[handle]", result.screen_name %>
                 <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
                 <%= hidden_field_tag "add_form[provider]", @provider %>
@@ -79,8 +79,8 @@
                 <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
-                <%= hidden_field_tag "add_form[display_name]", @results["display_name"] %>
-                <%= hidden_field_tag "add_form[handle]", @results["profile_url"] %>
+                <%= hidden_field_tag "add_form[handle]", @results["display_name"] %>
+                <%= hidden_field_tag "add_form[profile_url]", @results["profile_url"] %>
                 <%= hidden_field_tag "add_form[avatar]", @results["portrait_medium"] %>
                 <%= hidden_field_tag "add_form[provider]", @provider %>
                 <%= hidden_field_tag "add_form[provider_uid]", @results["id"] %>
