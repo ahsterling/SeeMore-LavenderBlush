@@ -51,7 +51,8 @@ class FeedsController < ApplicationController
           date: video["upload_date"],
           text_content: video["title"],
           media_url: video["url"],
-          feed_id: feed.id)
+          feed_id: feed.id,
+          post_url: video["url"])
       end
     end
   end
