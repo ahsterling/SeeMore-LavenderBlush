@@ -142,7 +142,9 @@ table {
   display: inline-block;
 }
 
-
+.post-wrapper a {
+  text-decoration: none;
+}
 
 @media (max-width: 767px) {
   body {
