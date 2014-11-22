@@ -1,19 +1,22 @@
-<div class = "home">
 
-
-
-<span id="cat"><%= image_tag "lavender_blush_copy2.png", width: "240px", height: "180px" %></span>
-<div id="welcome">
-  <h2>Welcome to Lavender Blush</h2>
-  <h3>...the softer side of social media...don't read anything you don't want to read...</h3>
-  <ul>
-
-<li>  <%= button_to "Sign In with Vimeo", "auth/vimeo", class: "btn btn-default" %></li>
-<li>  <%= button_to "Sign In with Github", "auth/developer", class: "btn btn-default" %></li>
-<li><%= button_to "Sign In with Twitter", "auth/developer", class: "btn btn-default" %></li>
-<li><%= button_to "Sign In with Instagram", "auth/instagram", class: "btn btn-default" %></li>
-
-</ul>
-</div>
-
-</div>
+<div class = "container">
+  <div id="welcome">
+    <div class = "top row">
+      <div id="cat">
+        <%= image_tag "lavender_blush_copy2.png", width: "240px", height: "180px" %>
+      </div>
+      <div id = "main-title">
+        <h1>Welcome to Lavender Blush</h1>
+        <h3>...the softer side of social media...don't read anything you don't want to read...</h3>
+      </div>
+    </div> <!--row-->
+    <div class = "bottom row">
+      <ul>
+        <li><%= button_to "Sign In with Vimeo", "auth/vimeo", class: "btn btn-default" %></li>
+        <li><%= button_to "Sign In with Github", "auth/developer", class: "btn btn-default" %></li>
+        <li><%= button_to "Sign In with Twitter", "auth/developer", class: "btn btn-default" %></li>
+        <li><%= button_to "Sign In with Instagram", "auth/instagram", class: "btn btn-default" %></li>
+      </ul>
+    </div> <!--row-->
+  </div> <!-- welcome -->
+</div> <!-- container -->
