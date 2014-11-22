@@ -15,11 +15,7 @@ class Post < ActiveRecord::Base
       end
     elsif feed.provider == "Vimeo"
       Vimeo::Simple::User.all_videos(feed.provider_uid).each do |video|
-        Post.create(
-        date: video["upload_date"],
-        text_content: video["title"],
-        media_url: video["url"],
-        feed_id: feed.id)
+        Post.create(date: video["upload_date"], text_content: video["title"], media_url: video["url"], feed_id: feed.id)
       end
     end
   end
