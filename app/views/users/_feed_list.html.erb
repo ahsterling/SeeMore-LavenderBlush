@@ -1,5 +1,12 @@
 <tr>
   <td><%= image_tag feed.avatar, class: "img-circle" %></td>
   <td><%= feed.handle %></td>
-  <td><%= button_to "Unsubscribe", nil, class: "btn btn-danger" %></td>
+
+  <td>
+    <%= form_tag user_feeds_path, method: :delete do %>
+      <%= hidden_field_tag "delete_button[provider]", feed.provider %>
+      <%= hidden_field_tag "delete_button[provider_uid]", feed.provider_uid %>
+      <%= submit_tag "Unsubscribe", class: "btn btn-danger" %>
+    <% end %>
+  </td>
 </tr>
