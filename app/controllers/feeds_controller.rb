@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
 
   def create
     unless feed = Feed.find_existing_feed(params[:add_form])
-      feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
+      feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar, :profile_url))
       if feed.save
         get_posts(feed)
       else
@@ -34,7 +34,16 @@ class FeedsController < ApplicationController
         config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
       end
       client.user_timeline(feed.provider_uid).each do |tweet|
-        Post.create(date: tweet.created_at, text_content: tweet.text, feed_id: feed.id)
+        post = Post.create(date: tweet.created_at,
+                           text_content: tweet.text,
+                           feed_id: feed.id,
+                           post_url: tweet.url.to_s,
+                           )
+        if tweet.media[0]
+          post.media_url = tweet.media[0].media_url.to_s
+          post.save
+        end
+
       end
     elsif feed.provider == "Vimeo"
       Vimeo::Simple::User.all_videos(feed.provider_uid).each do |video|
@@ -42,7 +51,8 @@ class FeedsController < ApplicationController
           date: video["upload_date"],
           text_content: video["title"],
           media_url: video["url"],
-          feed_id: feed.id)
+          feed_id: feed.id,
+          post_url: video["url"])
       end
     end
   end

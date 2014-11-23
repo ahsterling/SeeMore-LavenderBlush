@@ -136,7 +136,6 @@ table {
 }
 
 
-
 .search-box {
   display: inline-block;
 }
@@ -145,10 +144,14 @@ table {
   display: inline-block;
 }
 
+
 .account-info {
   text-align: left;
 }
 
+.post-wrapper a {
+  text-decoration: none;
+}
 
 
 @media (max-width: 767px) {

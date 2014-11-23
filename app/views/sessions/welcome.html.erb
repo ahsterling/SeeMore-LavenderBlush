@@ -6,20 +6,24 @@
   <%= render "shared/vimeo_search" %>
 </div>
 
-<h1>Welcome <%= @user.name %></h1>
+<h1>Welcome <%= @user.name.titleize %>!</h1>
 
-<p>You are connected through:</p>
-<% @providers.each do |provider| %>
-  <p><%= provider.titleize %></p>
-<% end %>
+<p>
+  You are connected through:
+  <% @providers.each do |provider| %>
+    <%= provider.titleize %>
+  <% end %>
+</p>
 
 <!-- This is a start for adding other accounts to your account... -->
 <div class="add-providers">
-  <p>Connect your other social media accounts:</p>
+  <p>
+    Connect your other social media accounts:
 
-  <% @new_providers.each do |p| %>
-    <p><%= p.titleize %></p>
-  <% end %>
+    <% @new_providers.each do |p| %>
+      <%= p.titleize %>
+    <% end %>
+  </p>
 </div>
 
 <table class = "table table-hover text-left">
