@@ -60,7 +60,7 @@ class SearchesController < ApplicationController
     beemos.each do |beemo|
       @results << Vimeo::Simple::User.info(beemo.uid)
     end
-    if @results.empty?
+    if @results.class == []
       redirect_to search_path, notice: "Your search had no results."
     else
       return @results
