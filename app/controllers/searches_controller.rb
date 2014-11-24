@@ -7,12 +7,13 @@ class SearchesController < ApplicationController
 
   end
 
-  def results
+  def results                           # @results is assigned in either twitter_search or vimeo_search
     @user = User.find(session[:user_id])
     @provider = params[:provider]
     if @provider == "Twitter"
       twitter_search
     elsif @provider == "Vimeo"
+      raise params.inspect
       vimeo_search
     else
       redirect_to search_path
@@ -62,7 +63,7 @@ class SearchesController < ApplicationController
     if @results.empty?
       redirect_to search_path, notice: "Your search had no results."
     else
-      return results
+      return @results
     end
   end
 
