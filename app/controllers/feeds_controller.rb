@@ -14,6 +14,11 @@ class FeedsController < ApplicationController
     end
   end
 
+  def update
+    Post.refresh_posts(session[:user_id])
+    redirect_to welcome_path, notice: "Feed Refreshed!"
+  end
+
 
   private
 

@@ -1,4 +1,16 @@
+class DuplicateValidation < ActiveModel::Validator
+  def validate(record)
+    unless record.date != Post.where("feed_id = ? AND date = ?", record.feed_id, record.date)
+      record.errors[:duplicate] << 'Duplicate post'
+    end
+  end
+end
+
 class Post < ActiveRecord::Base
+
+  include ActiveModel::Validations
+  validates_with DuplicateValidation
+
   belongs_to :feed
   has_many :users, through: :feeds
 
@@ -39,10 +51,11 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def self.last_posts(user_id)
-    user = User.find(user_id)
-    feeds = user.feeds
-    feeds.collect { |feed| { feed.id => feed.posts.last.date } }
-  end
+  def self.refresh_posts(user_id)
+    feeds = User.find(user_id).feeds
 
+    feeds.each do |feed|
+      self.get_new_feed_posts(feed)
+    end
+  end
 end
