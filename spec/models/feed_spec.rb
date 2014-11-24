@@ -4,15 +4,15 @@ describe Feed do
 
   describe ".validates" do
     it 'saves a correct Feed' do
-      expect(Feed.new(provider: "Twitter", provider_uid: 123, handle: "bookis").valid?).to eq true
+      expect(Feed.new(provider: "Twitter", provider_uid: "123", handle: "bookis").valid?).to eq true
     end
 
     it "doesn't save a Feed with missing handle" do
-      expect(Feed.new(provider: "Twitter", provider_uid: 123).valid?).to eq false
+      expect(Feed.new(provider: "Twitter", provider_uid: "123").valid?).to eq false
     end
 
     it "doesn't save a Feed with a missing provider" do
-      expect(Feed.new(provider_uid: 123, handle: "bookis").valid?).to eq false
+      expect(Feed.new(provider_uid: "123", handle: "bookis").valid?).to eq false
     end
 
     it "doesn't save a Feed with a missing provider_uid" do
@@ -26,8 +26,8 @@ describe Feed do
 
   describe '#find_existing_feed' do
 
-    let(:feed_info) {{provider: 'Twitter', provider_uid: 123}}
-    let(:feed) {Feed.create(handle: "bookis", provider: "Twitter", provider_uid: 123)}
+    let(:feed_info) {{provider: 'Twitter', provider_uid: "123"}}
+    let(:feed) {Feed.create(handle: "bookis", provider: "Twitter", provider_uid: "123")}
 
     it 'returns the feed object' do
       feed
