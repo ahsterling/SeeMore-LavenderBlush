@@ -1,17 +1,6 @@
 
 <% if @results.empty? %>
-  <p>Sorry, no users found! Try again: </p>
-
-  <div class = "search-box">
-    <%= render "shared/twitter_search" %>
-    <%= render "shared/vimeo_search" %>
-  </div>
-
-  <div class="suggestions">
-    <p>Looking for a suggestion?</p>
-    <%= image_tag @bookis.profile_image_uri(size = :bigger), class: "img-circle" %>
-    <%= link_to @bookis.screen_name, "#{@bookis.url}", target: "_blank" %>
-  </div>
+  <p>Sorry, no users found! Try again... </p>
 
 <% else %>
 
