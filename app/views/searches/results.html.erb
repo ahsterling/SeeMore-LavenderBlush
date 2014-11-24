@@ -66,29 +66,33 @@
         <th>User Location</th>
         <th>Add Feed</th>
       </tr>
+      <% @results.each do |result| %>
         <tr>
-          <td><%= image_tag @results["portrait_medium"], class: "img-circle" %></td>
-          <td><%= link_to @results["display_name"], "#{@results['profile_url']}" %></td>
-          <td><%= @results["location"]%></td>
+          <td><%= image_tag result["portrait_medium"], class: "img-circle" %></td>
+          <td><%= link_to result["display_name"], "#{result['profile_url']}" %></td>
+          <td><%= result["location"]%></td>
           <td>
-            <% if @user.has_feed?(@results["id"]) %>
+            <% if @user.has_feed?(result["id"]) %>
               <%= form_tag user_feeds_path, method: :delete do %>
                 <%= hidden_field_tag "delete_button[provider]", "Vimeo" %>
-                <%= hidden_field_tag "delete_button[provider_uid]", @results["id"].to_i  %>
+                <%= hidden_field_tag "delete_button[provider_uid]", result["id"].to_i  %>
                 <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
                 <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
-                <%= hidden_field_tag "add_form[handle]", @results["display_name"] %>
-                <%= hidden_field_tag "add_form[profile_url]", @results["profile_url"] %>
-                <%= hidden_field_tag "add_form[avatar]", @results["portrait_medium"] %>
+
+                <%= hidden_field_tag "add_form[handle]", result["display_name"] %>
+                <%= hidden_field_tag "add_form[profile_url]", result["profile_url"] %>
+                <%= hidden_field_tag "add_form[avatar]", result["portrait_medium"] %>
+
                 <%= hidden_field_tag "add_form[provider]", @provider %>
-                <%= hidden_field_tag "add_form[provider_uid]", @results["id"] %>
+                <%= hidden_field_tag "add_form[provider_uid]", result["id"] %>
                 <%= submit_tag "Add Feed", class: "btn btn-info" %>
               <% end %>
             <% end %>
           </td>
         </tr>
+        <% end %>
     </table>
 
   <% end %>
