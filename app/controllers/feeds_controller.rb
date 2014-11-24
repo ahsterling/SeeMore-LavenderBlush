@@ -26,7 +26,7 @@ class FeedsController < ApplicationController
   end
 
   def create_new_feed(params)
-    feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar))
+    feed = Feed.new(params.require(:add_form).permit(:provider, :provider_uid, :handle, :avatar, :profile_url))
     if feed.save
       feed
     else

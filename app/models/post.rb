@@ -11,11 +11,22 @@ class Post < ActiveRecord::Base
         config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
       end
       client.user_timeline(feed.provider_uid.to_i).each do |tweet|
-        Post.create(date: tweet.created_at, text_content: tweet.text, feed_id: feed.id)
+        post = Post.create(date: tweet.created_at,
+                           text_content: tweet.text,
+                           feed_id: feed.id,
+                           post_url: tweet.url.to_s)
+        if tweet.media[0]
+          post.media_url = tweet.media[0].media_url.to_s
+          post.save
+        end
       end
     elsif feed.provider == "Vimeo"
       Vimeo::Simple::User.all_videos(feed.provider_uid.to_i).each do |video|
-        Post.create(date: video["upload_date"], text_content: video["title"], media_url: video["url"], feed_id: feed.id)
+        Post.create(date: video["upload_date"],
+                    text_content: video["title"],
+                    media_url: video["url"],
+                    feed_id: feed.id,
+                    post_url: video["url"])
       end
     end
   end

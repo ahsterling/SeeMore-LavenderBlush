@@ -9,26 +9,42 @@ body {
 .home_page {
   background-color: rgb(245,0,227);
   margin: 0;
-
+  .container {
+    padding: 0;
+    margin: 0;
+    // border: solid 0.3em purple;
+    width: 100%;
+  }
+  .row {
+    padding-bottom: 20px;
+    // border: dashed white;
+    margin-bottom: 30px;
+  }
 }
 
-
+.chosen {
+  background-color: #df9588;
+}
 
 
 #cat {
   display: block;
   width: auto;
   float: left;
+  margin: 0;
+  // border: solid 0.2em blue;
 }
-#blush{
-  display: inline-block;
-}
+
 #welcome {
   display: inline-block;
+  // border: solid 0.1em green;
   position: center;
-  width: 80%;
+  width: 90%;
   color: white;
   text-align: center;
+  h1 {
+    font-size: 4em;
+  }
   li  {
     display: inline-block;
     width: auto;
@@ -40,9 +56,15 @@ body {
   .btn {
     background-color: purple;
     color: white;
-    border:solid purple;
+    // border:solid purple;
     border-radius: 1em;
     font-size: 20px;
+  //   .btn-vimeo {
+   //
+  //  background:url('images/vimeo-32.png') no-repeat left center;
+  //  padding-left:20px;
+   //
+  //   }
 
   }
 }
@@ -67,13 +89,16 @@ body nav,
     border-radius: 1em;
     margin: 10px;
 
-
   }
 }
+
+.search-bar {
+
+}
+
 .navbar-inverse a.navbar-brand {
   color: #7F5261;
   color: white;
-
 
 }
 
@@ -133,7 +158,6 @@ table {
 }
 
 
-
 .search-box {
   display: inline-block;
 }
@@ -142,6 +166,15 @@ table {
   display: inline-block;
 }
 
+
+.account-info {
+  text-align: left;
+}
+
+
+.post-wrapper a {
+  text-decoration: none;
+}
 
 
 @media (max-width: 767px) {

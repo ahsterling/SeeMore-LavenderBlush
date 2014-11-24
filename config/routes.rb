@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post "/sessions/create", to: "sessions#create"
   get "/sessions/welcome", to: "sessions#welcome", as: :welcome
 
+  get "/users/:id",        to: "users#show", as: :user
+  
+
   post "/sessions/logout", to: "sessions#logout", as: :logout
 
   get  "/feeds",           to: "feeds#feed",     as: :feeds

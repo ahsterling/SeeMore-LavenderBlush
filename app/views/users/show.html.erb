@@ -1,0 +1,61 @@
+<h2><%= @user.name.titleize %>'s Account Page</h2>
+
+<h3>Your Information</h3>
+
+<div class = "row">
+  <div class = "col-sm-6">
+    <h4>Profile Information</h4>
+    <table class = "table account-info" >
+      <tr>
+        <th>Name</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= @user.email %></td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div class = "col-sm-6">
+    <h4>Connected Accounts</h4>
+    <% @providers.each do |provider| %>
+      <%= provider.provider %>
+    <% end %>
+
+    <h4>Connect Other Accounts</h4>
+
+    <%= image_tag "twitter.png", class: "img-circle twitter" %>
+    <%= image_tag "vimeo-64.png", class: "img-circle vimeo" %>
+    <%= image_tag "instagram-6-64.png" %>
+
+  </div>
+
+</div>
+
+
+<div class = "row">
+
+  <div class ="col-sm-6">
+    <table class = "table table-striped account-info" >
+      <tr>
+        <th colspan=3>Twitter Feeds:<th>
+      </tr>
+      <% @twitter_feeds.each do |feed| %>
+        <%= render "feed_list", feed: feed %>
+      <% end %>
+    </table>
+  </div>
+
+  <div class = "col-sm-6">
+    <table class = "table table-striped account-info" >
+      <tr>
+        <th colspan=3>Vimeo Feeds:</th>
+      </tr>
+      <% @vimeo_feeds.each do |feed| %>
+        <%= render "feed_list", feed: feed %>
+      <% end %>
+    </table>
+  </div>
+</div>
