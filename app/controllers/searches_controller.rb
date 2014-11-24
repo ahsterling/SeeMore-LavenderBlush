@@ -18,6 +18,7 @@ class SearchesController < ApplicationController
     else
       redirect_to search_path
     end
+    
   end
 
 

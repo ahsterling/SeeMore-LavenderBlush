@@ -17,14 +17,14 @@
         <th>Add Feed</th>
       </tr>
       <% @results.each do |result| %>
-        <tr>
+        <tr class = "feed-wrapper">
           <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
           <td><%= link_to result.screen_name, "#{result.url}" %></td>
           <td><%= result.description %></td>
           <td><%= result.location %></td>
           <td><%= result.followers_count %> followers</td>
           <td>
-            <% if @user.has_feed?(result.id) %>
+            <% if @user.has_feed?(result.id.to_s) %>
               <%= form_tag user_feeds_path, method: :delete do %>
                 <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
                 <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
@@ -32,12 +32,14 @@
                 <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
-                <%= hidden_field_tag "add_form[profile_url]", result.uri %>
-                <%= hidden_field_tag "add_form[handle]", result.screen_name %>
-                <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
-                <%= hidden_field_tag "add_form[provider]", @provider %>
-                <%= hidden_field_tag "add_form[provider_uid]", result.id %>
-                <%= submit_tag "Add Feed", class: "btn btn-info" %>
+                <div class = "subscribe-button">
+                  <%= hidden_field_tag "add_form[profile_url]", result.uri %>
+                  <%= hidden_field_tag "add_form[handle]", result.screen_name %>
+                  <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
+                  <%= hidden_field_tag "add_form[provider]", @provider %>
+                  <%= hidden_field_tag "add_form[provider_uid]", result.id %>
+                  <%= submit_tag "Add Feed", class: "btn btn-info" %>
+                </div>
               <% end %>
             <% end %>
           </td>
