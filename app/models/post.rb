@@ -1,6 +1,6 @@
 class DuplicateValidation < ActiveModel::Validator
   def validate(record)
-    unless record.date != Post.where("feed_id = ? AND date = ?", record.feed_id, record.date).first.date
+    unless Post.where("feed_id = '#{record.feed_id}' AND date = '#{record.date}'").empty?
       record.errors[:duplicate] << 'Duplicate post'
     end
   end
@@ -8,8 +8,8 @@ end
 
 class Post < ActiveRecord::Base
 
-  # include ActiveModel::Validations
-  # validates_with DuplicateValidation
+  include ActiveModel::Validations
+  validates_with DuplicateValidation
 
   belongs_to :feed
   has_many :users, through: :feeds
