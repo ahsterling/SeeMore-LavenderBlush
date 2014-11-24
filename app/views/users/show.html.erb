@@ -33,19 +33,21 @@
       <% end %>
     <% end %>
 
+
+
     <h4>Connect Other Accounts</h4>
     <% @other_providers.each do |provider| %>
       <% if provider == "vimeo" %>
-        <%= image_tag "vimeo-64.png", class: "img-circle vimeo inactive" %>
+        <%= link_to image_tag("vimeo-64.png", class: "img-circle vimeo inactive"), "/auth/vimeo", method: :post %>
       <% elsif provider == "github" %>
-        <%= image_tag "github-64.png", class: "img-circle github inactive" %>
+        <%= link_to image_tag("github-64.png", class: "img-circle github inactive"), "/auth/github", method: :post %>
       <% elsif provider == "instagram" %>
-        <%= image_tag "instagram-64.png", class: "img-circle instagram inactive" %>
+        <%= link_to image_tag("instagram-64.png", class: "img-circle instagram inactive"), "/auth/instagram", method: :post %>
       <% elsif provider == "twitter" %>
-        <%= image_tag "twitter.png", class: "img-circle twitter inactive" %>
+        <%= link_to image_tag("twitter.png", class: "img-circle twitter inactive"), "/auth/developer", method: :post %>
       <% end %>
     <% end %>
-    
+
   </div>
 
 </div>
