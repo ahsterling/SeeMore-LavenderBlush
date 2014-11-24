@@ -39,15 +39,10 @@ class Post < ActiveRecord::Base
     end
   end
 
-  # def self.refresh_posts(user_id)
-  #   user = User.find(user_id)
-  #   feeds = user.feeds
-  #
-  #   array = []
-  #
-  #   feeds.each do |feed|
-  #     feed.posts.collect { |post| post.post_url }
-  #   end
-  # end
+  def self.last_posts(user_id)
+    user = User.find(user_id)
+    feeds = user.feeds
+    feeds.collect { |feed| { feed.id => feed.posts.last.date } }
+  end
 
 end
