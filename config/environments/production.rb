@@ -82,4 +82,3 @@ Rails.application.configure do
 
   config.gem "vimeo"
 end
-config.gem "vimeo"
