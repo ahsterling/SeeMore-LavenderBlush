@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/sessions/welcome", to: "sessions#welcome", as: :welcome
 
   get "/users/:id",        to: "users#show", as: :user
-  
+
 
   post "/sessions/logout", to: "sessions#logout", as: :logout
 
@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get "/feeds/vimeo",      to: "feeds#vimeo"
   get "/feeds/twitter",    to: "feeds#twitter"
 
-  delete "/user_feeds",        to: "user_feeds#destroy", as: :user_feeds
+  delete "/user_feeds",    to: "user_feeds#destroy", as: :user_feeds
+  post "/delete_user_feeds",      to: "user_feeds#destroy"
 
   root "home#index"
 

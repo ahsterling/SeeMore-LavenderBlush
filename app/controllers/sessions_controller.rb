@@ -25,12 +25,6 @@ class SessionsController < ApplicationController
     else
       Credential.create(user_id: current_user.id, provider: auth_hash.provider, uid: auth_hash.uid)
     end
-    # if logged_in?
-    #   Credential.create(
-    #   user_id: user.id,
-    #   provider: auth_hash.provider,
-    #   uid: auth_hash.uid)
-    # end
 
     redirect_to welcome_path, notice: "You have been successfully signed in."
   end
