@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     if @provider == "Twitter"
       twitter_search
     elsif @provider == "Vimeo"
-      raise params.inspect
+
       vimeo_search
     else
       redirect_to search_path
