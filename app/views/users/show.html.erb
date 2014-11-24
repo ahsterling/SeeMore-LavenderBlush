@@ -34,12 +34,18 @@
     <% end %>
 
     <h4>Connect Other Accounts</h4>
-
-    <%= image_tag "twitter.png", class: "img-circle twitter inactive" %>
-    <%= image_tag "vimeo-64.png", class: "img-circle vimeo inactive" %>
-    <%= image_tag "instagram-64.png", class: "img-circle instagram inactive" %>
-    <%= image_tag "github-64.png", class: "img-circle github inactive" %>
-
+    <% @other_providers.each do |provider| %>
+      <% if provider == "vimeo" %>
+        <%= image_tag "vimeo-64.png", class: "img-circle vimeo inactive" %>
+      <% elsif provider == "github" %>
+        <%= image_tag "github-64.png", class: "img-circle github inactive" %>
+      <% elsif provider == "instagram" %>
+        <%= image_tag "instagram-64.png", class: "img-circle instagram inactive" %>
+      <% elsif provider == "twitter" %>
+        <%= image_tag "twitter.png", class: "img-circle twitter inactive" %>
+      <% end %>
+    <% end %>
+    
   </div>
 
 </div>
