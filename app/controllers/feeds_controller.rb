@@ -23,8 +23,6 @@ class FeedsController < ApplicationController
   end
 
 
-
-
   def get_posts(feed)
     if feed.provider == "Twitter"
       client = Twitter::REST::Client.new do |config|
