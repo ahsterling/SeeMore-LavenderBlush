@@ -1,4 +1,4 @@
-<h2><%= @user.name.titleize %>'s Account Page</h2>
+<h2>Account Page</h2>
 
 <h3>Your Information</h3>
 
@@ -21,14 +21,32 @@
   <div class = "col-sm-6">
     <h4>Connected Accounts</h4>
     <% @providers.each do |provider| %>
-      <%= provider.provider %>
+
+      <% if provider.provider == "vimeo" %>
+        <%= image_tag "vimeo-64.png", class: "active-credential vimeo img-circle" %>
+      <% elsif provider.provider == "github" %>
+        <%= image_tag "github-64.png", class: "active-credential github img-circle" %>
+      <% elsif provider.provider == "instagram" %>
+        <%= image_tag "instagram-64.png", class: "active-credential instagram img-circle" %>
+      <% elsif provider.provider == "twitter" %>
+        <%= image_tag "twitter-64.png", class: "active-credential twitter img-circle" %>
+      <% end %>
     <% end %>
 
-    <h4>Connect Other Accounts</h4>
 
-    <%= image_tag "twitter.png", class: "img-circle twitter" %>
-    <%= image_tag "vimeo-64.png", class: "img-circle vimeo" %>
-    <%= image_tag "instagram-6-64.png" %>
+
+    <h4>Connect Other Accounts</h4>
+    <% @other_providers.each do |provider| %>
+      <% if provider == "vimeo" %>
+        <%= link_to image_tag("vimeo-64.png", class: "img-circle vimeo inactive"), "/auth/vimeo", method: :post %>
+      <% elsif provider == "github" %>
+        <%= link_to image_tag("github-64.png", class: "img-circle github inactive"), "/auth/github", method: :post %>
+      <% elsif provider == "instagram" %>
+        <%= link_to image_tag("instagram-64.png", class: "img-circle instagram inactive"), "/auth/instagram", method: :post %>
+      <% elsif provider == "twitter" %>
+        <%= link_to image_tag("twitter.png", class: "img-circle twitter inactive"), "/auth/developer", method: :post %>
+      <% end %>
+    <% end %>
 
   </div>
 

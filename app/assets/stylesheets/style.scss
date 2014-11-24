@@ -9,6 +9,7 @@ body {
 .home_page {
   background-color: rgb(245,0,227);
   margin: 0;
+
   .container {
     padding: 0;
     margin: 0;
@@ -22,9 +23,13 @@ body {
   }
 }
 
+
+
+
 .chosen {
   background-color: #df9588;
 }
+
 
 
 #cat {
@@ -172,8 +177,22 @@ table {
   background-color: #00aced;
 }
 
+
+
 .vimeo {
   background-color: purple;
+}
+
+.github {
+  background-color: #66be6c;
+}
+
+.instagram {
+  background-color: #4b4a81;
+}
+
+.inactive {
+  background-color: #6b6b6b;
 }
 
 .vimeo-text li {
