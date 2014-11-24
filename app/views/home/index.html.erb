@@ -2,9 +2,15 @@
 <div class = "container">
   <div id="welcome">
     <div class = "top row">
-      <div id="cat">
+      <div id="cat">        
+        <div class="col-lg-12 text-center">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: name %>
+          <% end -%>
+        </div>
         <%= image_tag "lavender_blush_copy2.png", width: "240px", height: "180px" %>
-      </div>
+    </div>
+
       <div id = "main-title">
         <h1>Welcome to Lavender Blush</h1>
         <h3>...the softer side of social media...don't read anything you don't want to read...</h3>
@@ -18,3 +24,4 @@
         <li><%= button_to "Sign In with Instagram", "auth/instagram", class: "btn btn-default" %></li>
       </ul>
     </div> <!--row-->
+  </div> <!--container-->

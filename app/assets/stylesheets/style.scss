@@ -2,8 +2,8 @@
 
 body {
   padding-top: 90px;
-
 }
+
 
 
 .home_page {
@@ -36,7 +36,7 @@ body {
   display: block;
   width: auto;
   float: left;
-  margin: 0;
+  margin-left: 20px;
   // border: solid 0.2em blue;
 }
 
@@ -74,6 +74,14 @@ body {
   }
 }
 
+.twitter-bird {
+  background-color: lightblue;
+}
+
+.vimeo-v {
+  background-color: purple;
+}
+
 body nav,
 .navbar-inverse {
   background-color: rgb(245,0,227);
@@ -97,13 +105,23 @@ body nav,
   }
 }
 
-.search-bar {
+
+.form-control{
+  width: 30%;
+
+}
+
+#search-bar {
+  color: white;
+  padding-top: 60px;
+
 
 }
 
 .navbar-inverse a.navbar-brand {
   color: #7F5261;
   color: white;
+  padding: 20px;
 
 }
 

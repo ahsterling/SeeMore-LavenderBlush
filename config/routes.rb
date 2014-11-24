@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   get  "/auth/:developer/callback", to: "sessions#create"
   post "/auth/:developer/callback", to: "sessions#create"
 
-  get  "/auth/:provider/callback", to: "sessions#create"
-  post "/auth/:provider/callback", to: "sessions#create"
 
   # For testing:
   post "/sessions/create", to: "sessions#create"
