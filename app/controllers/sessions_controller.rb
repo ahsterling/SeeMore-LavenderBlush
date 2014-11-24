@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
               provider: auth_hash.provider,
               uid: auth_hash.uid)
       else
-        redirect_to root_path
+        redirect_to root_path and return
       end
     end
     session[:user_id] = user.id
