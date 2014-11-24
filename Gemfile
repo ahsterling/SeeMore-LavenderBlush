@@ -7,6 +7,7 @@ end
 
 gem 'omniauth'
 gem 'omniauth-instagram'
+gem 'omniauth-github'
 
 gem 'httparty'
 gem 'twitter'
