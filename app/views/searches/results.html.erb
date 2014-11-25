@@ -25,11 +25,11 @@
           <td><%= result.followers_count %> followers</td>
           <td>
             <% if @user.has_feed?(result.id.to_s) %>
-              <%= form_tag user_feeds_path, method: :delete do %>
+              <%= form_tag user_feeds_path, method: :post do %>
                 <div class = "unsubscribe-button-search">
                   <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
                   <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
-                  <p><%= submit_tag "Unsubscribe", class: "delete btn btn-danger" %></p>
+                  <p><%= submit_tag "Unsubscribe", class: "unsubscribe btn btn-danger" %></p>
                 </div>
                 <% end %>
             <% else %>
@@ -40,7 +40,7 @@
                   <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
                   <%= hidden_field_tag "add_form[provider]", @provider %>
                   <%= hidden_field_tag "add_form[provider_uid]", result.id %>
-                  <%= submit_tag "Add Feed", class: "add btn btn-info" %>
+                  <%= submit_tag "Add Feed", class: "subscribe btn btn-info" %>
                 </div>
               <% end %>
             <% end %>
@@ -66,10 +66,10 @@
           <td><%= result["location"]%></td>
           <td>
             <% if @user.has_feed?(result["id"]) %>
-              <%= form_tag user_feeds_path, method: :delete do %>
+              <%= form_tag user_feeds_path, method: :post do %>
                 <%= hidden_field_tag "delete_button[provider]", "Vimeo" %>
                 <%= hidden_field_tag "delete_button[provider_uid]", result["id"].to_i  %>
-                <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                <p><%= submit_tag "Unsubscribe", class: "unsubscribe-results btn btn-danger" %></p>
                 <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
@@ -80,7 +80,7 @@
 
                 <%= hidden_field_tag "add_form[provider]", @provider %>
                 <%= hidden_field_tag "add_form[provider_uid]", result["id"] %>
-                <%= submit_tag "Add Feed", class: "btn btn-info" %>
+                <%= submit_tag "Add Feed", class: "subscribe btn btn-info" %>
               <% end %>
             <% end %>
           </td>
