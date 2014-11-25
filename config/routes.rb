@@ -24,8 +24,9 @@ Rails.application.routes.draw do
   get "/feeds/vimeo",      to: "feeds#vimeo"
   get "/feeds/twitter",    to: "feeds#twitter"
 
-  delete "/user_feeds",    to: "user_feeds#destroy", as: :user_feeds
+  post "/user_feeds",    to: "user_feeds#destroy", as: :user_feeds
   post "/delete_user_feeds",      to: "user_feeds#destroy"
+  delete "/user_feeds", to: "user_feeds#destroy"
 
   root "home#index"
 

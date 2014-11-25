@@ -14,18 +14,3 @@
 //= require jquery_ujs
 
 //= require_tree .
-
-// $(function () {
-//   $("unsubscribe-button").click(function (e) {
-//     e.preventDefault();
-//     console.log("unsubscribe");
-//     var div = $(this).parents(".feed-wrapper");
-//     var url = $(this).child("form").attr("action");
-//     $.ajax(url, {
-//       type: "DELETE",
-//       success: function() {
-//         div.addClass("chosen");
-//       }
-//     });
-//   });
-// });
