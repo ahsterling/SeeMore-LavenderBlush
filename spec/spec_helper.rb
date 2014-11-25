@@ -14,6 +14,9 @@
 # users commonly want.
 #
 
+# Requiring Code Coverage
+require 'simplecov'
+SimpleCov.start 'rails'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 # spec_helper.rb

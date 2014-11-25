@@ -7,8 +7,8 @@ class UserFeedsController < ApplicationController
     user_feed = UserFeed.find_by(user_id: session[:user_id], feed_id: feed.id)
     user_feed.destroy
     if user_feed.destroy
-      # redirect_to welcome_path
+      redirect_to welcome_path
     end
   end
-  
+
 end
