@@ -8,6 +8,7 @@ end
 gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'omniauth-github'
+gem 'omniauth-vimeo'
 
 gem 'httparty'
 gem 'twitter'
@@ -43,9 +44,10 @@ group :development do
 end
 
 gem 'vimeo'
-gem 'omniauth-vimeo'
 gem 'beemo'
 gem 'rails_12factor', group: :production
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
