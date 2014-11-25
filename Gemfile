@@ -43,6 +43,8 @@ group :development do
   gem 'binding_of_caller'
 end
 
+gem 'simplecov', :require => false, :group => :test
+
 gem 'vimeo'
 gem 'beemo'
 gem 'rails_12factor', group: :production
