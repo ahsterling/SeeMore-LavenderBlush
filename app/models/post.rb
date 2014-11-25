@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_or_create_tweet(tweet, feed)
-    unless Post.where("feed_id = '#{feed.id}' AND date = '#{tweet.created_at}'").any?
+    if Post.where("feed_id = '#{feed.id}' AND date = '#{tweet.created_at}'").empty?
       post = Post.create(date: tweet.created_at,
                          text_content: tweet.text,
                          feed_id: feed.id,
@@ -43,7 +43,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_or_create_vimeo(video, feed)
-    unless Post.where("feed_id = '#{feed.id}' AND date = '#{video['upload_date']}'").any?
+    if Post.where("feed_id = '#{feed.id}' AND date = '#{video['upload_date']}'").empty?
       Post.create(date: video["upload_date"],
                   text_content: video["title"],
                   media_url: video["url"],
