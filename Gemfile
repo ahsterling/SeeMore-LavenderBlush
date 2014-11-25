@@ -45,8 +45,8 @@ end
 
 gem 'vimeo'
 gem 'beemo'
+gem 'rails_12factor', group: :production
 
-gem 'rails_12factor'
 
 
 # Use ActiveModel has_secure_password
