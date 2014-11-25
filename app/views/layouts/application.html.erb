@@ -20,15 +20,15 @@
           <%= link_to "My Account", user_path(current_user.id), class: "navbar-brand" %>
           <%= button_to "#{User.find(session[:user_id]).name} Sign Out", :logout, class: "btn btn-default" %>
         </div>
+
 <!-- ##################### -->
   <div id="search-bar" >
     <span>Search With: </span>
 
-      <img src="twitter_32.png"  class = "twitter-bird img-circle" >
-      <img src="vimeo_32.png" class = "vimeo-v img-circle" >
-
-
+      <img src="/assets/twitter_32.png"  class = "twitter-bird img-circle" />
+      <img src="/assets/vimeo_32.png" class = "vimeo-v img-circle" />
     </div>
+
       </nav>
     <div id="search-fields">
       <div id="twitter-search" class = "">
