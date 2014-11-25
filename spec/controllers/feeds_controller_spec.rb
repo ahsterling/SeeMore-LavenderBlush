@@ -61,4 +61,14 @@ describe FeedsController do
 
     end
   end
+
+  describe "POST #update" do
+    context "refreshing feeds" do
+
+      it 'refreshes successfully' do
+
+      end
+
+    end
+  end
 end
