@@ -66,7 +66,9 @@ describe FeedsController do
     context "refreshing feeds" do
 
       it 'refreshes successfully' do
-
+        post :create, {add_form: {handle: "bookis", provider: "Twitter", provider_uid: uid}}, {user_id: test_user1.id}
+        post :update, {user_id: test_user1.id}
+        expect(response).to redirect_to welcome_path
       end
 
     end
