@@ -17,16 +17,15 @@
         <div class="navbar-header">
           <span id="cat"><%= image_tag "lavender_blush_copy2.png", width: "80px", height: "60px" %></span>
           <%= link_to "<h2>LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
-          <%= link_to "My Account", user_path(current_user.id), class: "navbar-brand" %>
+          <%= link_to "My Account", user_path(current_user.id), class: "btn btn-default" %>
           <%= button_to "#{User.find(session[:user_id]).name} Sign Out", :logout, class: "btn btn-default" %>
-        </div>
+
 
 <!-- ##################### -->
-  <div id="search-bar" >
-    <span>Search With: </span>
-
-      <img src="/assets/twitter_32.png"  class = "twitter-bird img-circle" />
-      <img src="/assets/vimeo_32.png" class = "vimeo-v img-circle" />
+    <div id="search-bar" >
+      <span>Search With: </span>
+      <%= image_tag "twitter_32.png", class: "twitter-bird img-circle" %>
+      <%= image_tag "vimeo_32.png", class: "vimeo-v img-circle" %>
     </div>
 
       </nav>
@@ -38,6 +37,8 @@
         <%= render "shared/vimeo_search" %>
       </div>
     </div>
+
+  </div>
 
 
   <% end %>
