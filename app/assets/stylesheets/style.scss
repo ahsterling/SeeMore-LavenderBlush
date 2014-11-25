@@ -51,19 +51,22 @@ body {
     font-size: 4em;
   }
   .btn {
-    // background-color: purple;
+    background-color: purple;
     color: white;
     // border:solid purple;
     border-radius: 1em;
     font-size: 20px;
-  //   .btn-vimeo {
-   //
-  //  background:url('images/vimeo-32.png') no-repeat left center;
-  //  padding-left:20px;
-   //
-  //   }
-
   }
+
+  li  {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 10px;
+
+    list-style-type: none;
+  }
+
 }
 
 .twitter-bird {
