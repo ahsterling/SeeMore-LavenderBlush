@@ -1,7 +1,7 @@
-<%= form_tag search_path, class: "form-inline" do %>
-  <%= text_field_tag :username, nil, class: "form-control" %>
+<%= form_tag search_path, class: "" do %>
+  <%= text_field_tag :username, nil, class: "form-control", placeholder: "Search Vimeo" %>
   <%= hidden_field_tag :provider, "Vimeo" %>
-  <%= submit_tag "Search Vimeo", class: "btn btn-default" %>
+  <%= submit_tag "Search Vimeo", class: "hidden btn btn-default" %>
 <% end %>
 
 <!-- username refers to the search string and is what will be submitted to Vimeo -->

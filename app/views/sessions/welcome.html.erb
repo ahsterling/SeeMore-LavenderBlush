@@ -1,12 +1,12 @@
 
-<div class="search-box">
-  <%= render "shared/twitter_search" %>
-</div>
-<div class = "search-box">
-  <%= render "shared/vimeo_search" %>
-</div>
+
 
 <h1>Welcome <%= @user.name.titleize %>!</h1>
+<div class="suggestions">
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+</div>
 
 <p>
   You are connected through:
@@ -25,6 +25,8 @@
     <% end %>
   </p>
 </div>
+
+<%#= button_to "Refresh My Feeds", feeds_path, class: "btn btn-default", method: :patch %>
 
 <table class = "table table-hover text-left">
 

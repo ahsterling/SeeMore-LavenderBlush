@@ -3,12 +3,14 @@
   <td><%= feed.handle %></td>
 
   <td>
-    <div class="unsubscribe-button">
-      <%= form_tag user_feeds_path, method: :delete do %>
+
+    <%= form_tag user_feeds_path, method: :delete, class: "form" do %>
+      <div class = "unsubscribe-button">
         <%= hidden_field_tag "delete_button[provider]", feed.provider %>
         <%= hidden_field_tag "delete_button[provider_uid]", feed.provider_uid %>
         <%= submit_tag "Unsubscribe", class: "btn btn-danger" %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+
   </td>
 </tr>

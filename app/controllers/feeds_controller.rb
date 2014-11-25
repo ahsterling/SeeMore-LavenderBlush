@@ -14,6 +14,11 @@ class FeedsController < ApplicationController
     end
   end
 
+  def update
+    Post.refresh_posts(session[:user_id])
+    redirect_to welcome_path, notice: "Feed Refreshed!"
+  end
+
 
   private
 
@@ -33,6 +38,7 @@ class FeedsController < ApplicationController
       raise FeedError.new
     end
   end
+
 
   def create_user_feed_and_posts(feed)
     user_feed = UserFeed.new(user_id: session[:user_id], feed_id: feed.id)
