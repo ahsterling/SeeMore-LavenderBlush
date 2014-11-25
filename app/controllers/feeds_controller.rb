@@ -39,6 +39,7 @@ class FeedsController < ApplicationController
     end
   end
 
+
   def create_user_feed_and_posts(feed)
     user_feed = UserFeed.new(user_id: session[:user_id], feed_id: feed.id)
     if user_feed.save

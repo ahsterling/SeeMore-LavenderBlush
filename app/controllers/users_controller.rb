@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @twitter_feeds = @user.feeds.where(provider: "Twitter")
     @vimeo_feeds = @user.feeds.where(provider: "Vimeo")
     @providers = @user.credentials
+    @other_providers = @user.other_providers
     # @all_providers = ["Instagram", "Github", "Vimeo", "developer"]
 
   end

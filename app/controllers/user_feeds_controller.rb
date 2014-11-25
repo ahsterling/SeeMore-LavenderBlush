@@ -5,9 +5,9 @@ class UserFeedsController < ApplicationController
     uid       = params[:delete_button][:provider_uid]
     feed      = Feed.find_by(provider: provider, provider_uid: uid)
     user_feed = UserFeed.find_by(user_id: session[:user_id], feed_id: feed.id)
-
+    user_feed.destroy
     if user_feed.destroy
-      redirect_to welcome_path
+      # redirect_to welcome_path
     end
   end
 end

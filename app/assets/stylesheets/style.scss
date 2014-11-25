@@ -2,13 +2,14 @@
 
 body {
   padding-top: 90px;
-
 }
+
 
 
 .home_page {
   background-color: rgb(245,0,227);
   margin: 0;
+
   .container {
     padding: 0;
     margin: 0;
@@ -22,16 +23,20 @@ body {
   }
 }
 
+
+
+
 .chosen {
   background-color: #df9588;
 }
+
 
 
 #cat {
   display: block;
   width: auto;
   float: left;
-  margin: 0;
+  margin-left: 20px;
   // border: solid 0.2em blue;
 }
 
@@ -69,6 +74,14 @@ body {
   }
 }
 
+.twitter-bird {
+  background-color: lightblue;
+}
+
+.vimeo-v {
+  background-color: purple;
+}
+
 body nav,
 .navbar-inverse {
   background-color: rgb(245,0,227);
@@ -80,6 +93,7 @@ body nav,
 
 .navbar-header {
   width: 100%;
+  padding-left: 25px;
   .btn {
     float: right;
     background-color: purple;
@@ -88,17 +102,31 @@ body nav,
     border: solid purple;
     border-radius: 1em;
     margin: 10px;
+    margin-right: 30px;
 
   }
 }
 
-.search-bar {
 
+.form-control{
+  width: 30%;
+
+}
+
+#search-bar {
+  color: white;
+  padding-top: 60px;
+  padding-left: 35px;
+}
+
+#search-fields {
+  padding-left: 35px;
 }
 
 .navbar-inverse a.navbar-brand {
   color: #7F5261;
   color: white;
+  padding: 20px;
 
 }
 
@@ -149,8 +177,22 @@ table {
   background-color: #00aced;
 }
 
+
+
 .vimeo {
   background-color: purple;
+}
+
+.github {
+  background-color: #66be6c;
+}
+
+.instagram {
+  background-color: #4b4a81;
+}
+
+.inactive {
+  background-color: #6b6b6b;
 }
 
 .vimeo-text li {
