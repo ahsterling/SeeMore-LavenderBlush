@@ -1,29 +1,9 @@
-
-
-
 <h1>Welcome <%= @user.name.titleize %>!</h1>
+
 <div class="suggestions">
   <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
   <% end -%>
-</div>
-
-<p>
-  You are connected through:
-  <% @providers.each do |provider| %>
-    <%= provider.titleize %>
-  <% end %>
-</p>
-
-<!-- This is a start for adding other accounts to your account... -->
-<div class="add-providers">
-  <p>
-    Connect your other social media accounts:
-
-    <% @new_providers.each do |p| %>
-      <%= p.titleize %>
-    <% end %>
-  </p>
 </div>
 
 <% if @user.posts.any? %>
