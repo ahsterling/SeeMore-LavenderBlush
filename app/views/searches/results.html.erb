@@ -26,10 +26,10 @@
           <td>
             <% if @user.has_feed?(result.id.to_s) %>
               <%= form_tag user_feeds_path, method: :delete do %>
-                <div class = "unsubscribe-button">
+                <div class = "unsubscribe-button-search">
                   <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
                   <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
-                  <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                  <p><%= submit_tag "Unsubscribe", class: "delete btn btn-danger" %></p>
                 </div>
                 <% end %>
             <% else %>
