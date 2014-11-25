@@ -23,18 +23,25 @@
 
 <!-- ##################### -->
   <div id="search-bar" >
-    <span>Search With: </span>
+    <ul>
+      <li>Search With:</li>
+      <%= image_tag "twitter_32.png", class: "twitter-bird img-circle" %>
+      <li><img src="twitter_32.png"  class = "twitter-bird img-circle" />
+      </li>
+      <li><img src="vimeo_32.png" class = "vimeo-v img-circle" /></span>
+    </li>
 
-      <img src="/assets/twitter_32.png"  class = "twitter-bird img-circle" />
-      <img src="/assets/vimeo_32.png" class = "vimeo-v img-circle" />
-    </div>
+    </ul>
+    <span id="search-text">Search With:
+
+      </div>
 
       </nav>
     <div id="search-fields">
-      <div id="twitter-search" class = "">
+      <div id="twitter-search" class = "search-icon">
         <%= render "shared/twitter_search" %>
       </div>
-      <div id="vimeo-search" class = "">
+      <div id="vimeo-search" class = "search-icon">
         <%= render "shared/vimeo_search" %>
       </div>
     </div>
