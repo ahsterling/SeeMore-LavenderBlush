@@ -1,15 +1,4 @@
-class DuplicateValidation < ActiveModel::Validator
-  def validate(record)
-    unless Post.where("feed_id = '#{record.feed_id}' AND date = '#{record.date}'").empty?
-      record.errors[:duplicate] << 'Duplicate post'
-    end
-  end
-end
-
 class Post < ActiveRecord::Base
-
-  include ActiveModel::Validations
-  validates_with DuplicateValidation
 
   belongs_to :feed
   has_many :users, through: :feeds
@@ -30,6 +19,12 @@ class Post < ActiveRecord::Base
       config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
     end
     client.user_timeline(feed.provider_uid.to_i).each do |tweet|
+      Post.find_or_create_tweet(tweet, feed)
+    end
+  end
+
+  def self.find_or_create_tweet(tweet, feed)
+    unless Post.where("feed_id = '#{feed.id}' AND date = '#{tweet.created_at}'").any?
       post = Post.create(date: tweet.created_at,
                          text_content: tweet.text,
                          feed_id: feed.id,
@@ -43,6 +38,12 @@ class Post < ActiveRecord::Base
 
   def self.get_videos(feed)
     Vimeo::Simple::User.all_videos(feed.provider_uid.to_i).each do |video|
+      Post.find_or_create_vimeo(video, feed)
+    end
+  end
+
+  def self.find_or_create_vimeo(video, feed)
+    unless Post.where("feed_id = '#{feed.id}' AND date = '#{video['upload_date']}'").any?
       Post.create(date: video["upload_date"],
                   text_content: video["title"],
                   media_url: video["url"],
@@ -53,9 +54,9 @@ class Post < ActiveRecord::Base
 
   def self.refresh_posts(user_id)
     feeds = User.find(user_id).feeds
-
     feeds.each do |feed|
       self.get_new_feed_posts(feed)
     end
   end
+
 end
