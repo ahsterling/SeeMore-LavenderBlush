@@ -26,9 +26,11 @@
           <td>
             <% if @user.has_feed?(result.id.to_s) %>
               <%= form_tag user_feeds_path, method: :delete do %>
-                <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
-                <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
-              <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                <div class = "unsubscribe-button">
+                  <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
+                  <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
+                  <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                </div>
                 <% end %>
             <% else %>
               <%= form_tag feeds_path do %>
@@ -38,7 +40,7 @@
                   <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
                   <%= hidden_field_tag "add_form[provider]", @provider %>
                   <%= hidden_field_tag "add_form[provider_uid]", result.id %>
-                  <%= submit_tag "Add Feed", class: "btn btn-info" %>
+                  <%= submit_tag "Add Feed", class: "add btn btn-info" %>
                 </div>
               <% end %>
             <% end %>
