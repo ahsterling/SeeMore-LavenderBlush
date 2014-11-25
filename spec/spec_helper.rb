@@ -34,8 +34,8 @@ require 'rubygems'
   omniauth_hash = {"provider" => "developer",
                     "uid" => "12345",
                     "info" => {
-                      "name" => "Fred Flintstone",
-                      "email" => "fred@bedrock.com"
+                      "name" => 'Fred Flintstone',
+                      "email" => 'fred@bedrock.com'
                       }
 
                     }
