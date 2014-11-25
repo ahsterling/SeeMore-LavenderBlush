@@ -44,7 +44,7 @@ class SearchesController < ApplicationController
   end
 
   def vimeo_search
-    beemos = Beemo::User.search(params[:username])
+    beemos = Beemo::User.search(params[:username].gsub(/\s+/,""))
     @results = []
     beemos.each do |beemo|
       @results << Vimeo::Simple::User.info(beemo.uid)

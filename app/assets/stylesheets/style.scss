@@ -93,6 +93,7 @@ body nav,
 
 .navbar-header {
   width: 100%;
+  padding-left: 25px;
   .btn {
     float: right;
     background-color: purple;
@@ -101,6 +102,7 @@ body nav,
     border: solid purple;
     border-radius: 1em;
     margin: 10px;
+    margin-right: 30px;
 
   }
 }
@@ -114,8 +116,11 @@ body nav,
 #search-bar {
   color: white;
   padding-top: 60px;
+  padding-left: 35px;
+}
 
-
+#search-fields {
+  padding-left: 35px;
 }
 
 .navbar-inverse a.navbar-brand {

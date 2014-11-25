@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get  "/feeds",           to: "feeds#feed",     as: :feeds
   post "/feeds",           to: "feeds#create"
+  patch "/feeds",          to: "feeds#update"
 
   get "/feeds/vimeo",      to: "feeds#vimeo"
   get "/feeds/twitter",    to: "feeds#twitter"
