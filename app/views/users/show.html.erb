@@ -9,12 +9,12 @@
       <%= form_tag user_path(@user.id), method: :post, class: "edit-form" do |f| %>
         <%= submit_tag "Save", class: "hide save btn btn-primary" %>
         <tr>
-          <td><%= label_tag :name %></td>
-          <td><%= text_field_tag "user[name]" , @user.name, class: "form-control" %></td>
+          <td class = "form-label"><%= label_tag :name %></td>
+          <td><%= text_field_tag "user[name]" , @user.name, class: "name form-control" %></td>
         </tr>
         <tr>
-          <td><%= label_tag :email %></td>
-          <td><%= text_field_tag "user[email]", @user.email, class: "form-control" %></td>
+          <td class = "form-label"><%= label_tag :email %></td>
+          <td><%= text_field_tag "user[email]", @user.email, class: "email form-control" %></td>
         </tr>
       <% end %>
     </table>
@@ -23,11 +23,11 @@
         <%= button_to "Edit", nil, class: "edit btn btn-info" %>
         <tr>
           <th>Name</th>
-          <td><%= @user.name %></td>
+          <td class = "display-name"><%= @user.name %></td>
         </tr>
         <tr>
           <th>Email</th>
-          <td><%= @user.email %></td>
+          <td class = "display-email"><%= @user.email %></td>
         </tr>
     </table>
   </div>

@@ -236,6 +236,14 @@ table {
   visibility: hidden;
 }
 
+.form-control {
+  height: 28px;
+  width: 100%;
+}
+
+.name-label {
+  text-align: left;
+}
 
 @media (max-width: 765px) {
   body {
