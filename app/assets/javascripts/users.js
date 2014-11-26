@@ -62,4 +62,29 @@ $(function() {
     });
   });
 
+  $(".edit").click(function(e) {
+    e.preventDefault();
+    $(".name").removeClass("hide");
+    $(".email").removeClass("hide");
+    $(".save").removeClass("hide");
+    $(".edit").addClass("hide");
+  });
+
+  $(".save").click(function(e) {
+    e.preventDefault();
+    var form = $(".edit-user");
+    console.log(form);
+
+    $.ajax("/users", {
+      type: "POST",
+      data: form.serialize(),
+      success: function() {
+        console.log("save");
+        $(".name").addClass("hide");
+        $(".email").addClass("hide");
+        $(".edit").removeClass("hide");
+        $(".save").addClass("hide");
+      }
+    });
+  });
 });

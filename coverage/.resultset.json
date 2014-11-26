@@ -1,19 +1,32 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/helpers/application_helper.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/helpers/user_feeds_helper.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/helpers/subscribed_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/helpers/user_feeds_helper.rb": [
         1,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/helpers/users_helper.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/controllers/feeds_controller.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/controllers/feeds_controller.rb": [
         1,
         null,
         1,
@@ -72,7 +85,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/controllers/application_controller.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -93,7 +106,7 @@
         1,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/controllers/searches_controller.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/controllers/searches_controller.rb": [
         1,
         null,
         1,
@@ -155,7 +168,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/controllers/sessions_controller.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -209,7 +222,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/controllers/user_feeds_controller.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/controllers/user_feeds_controller.rb": [
         1,
         null,
         1,
@@ -225,7 +238,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/controllers/users_controller.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -246,7 +259,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/models/feed.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/models/feed.rb": [
         1,
         1,
         1,
@@ -262,7 +275,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/models/post.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/models/post.rb": [
         1,
         null,
         1,
@@ -328,7 +341,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/models/user_feed.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/models/user_feed.rb": [
         1,
         1,
         1,
@@ -340,7 +353,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/models/user.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/models/user.rb": [
         1,
         null,
         null,
@@ -373,7 +386,7 @@
         null,
         null
       ],
-      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/models/credential.rb": [
+      "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/models/credential.rb": [
         1,
         null,
         1,
@@ -381,6 +394,6 @@
         null
       ]
     },
-    "timestamp": 1416962821
+    "timestamp": 1416963897
   }
 }
