@@ -72,6 +72,14 @@ describe FeedsController do
         }.to change(UserFeed, :count).by(1)
       end
 
+      it 'redirects if anything funky happens during save' do
+        allow(Post).to receive(:get_new_feed_posts).and_return(true)
+        allow(UserFeed).to receive(:new).and_return(UserFeed.new)
+
+        post :create, form_params, session_hash
+        expect(response).to redirect_to(search_path)
+      end
+
     end
   end
 
