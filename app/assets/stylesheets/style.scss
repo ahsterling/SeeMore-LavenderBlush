@@ -115,6 +115,8 @@ body nav,
 
 }
 
+
+
 #search-bar {
   display: block;
   height: auto;
@@ -238,6 +240,10 @@ table {
 
 .form-control {
   height: 28px;
+  width: 30%;
+}
+
+.edit-user .form-control {
   width: 100%;
 }
 
