@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
     auth_hash = request.env['omniauth.auth']
 
-
     if session[:user_id] == nil
       user = User.includes(:credentials).references(:credentials).where("credentials.provider = '#{auth_hash.provider}' AND credentials.uid = '#{auth_hash.uid}'").first
       if user == nil
@@ -35,14 +34,6 @@ class SessionsController < ApplicationController
   def welcome
     @user = User.find_by(id: session[:user_id])
     @posts = @user.posts.order(date: :desc).limit(50)
-    @providers = Credential.where(user_id: @user.id).collect { |c| c.provider }
-
-    ## This is a start for adding other accounts to your account...
-    possible_providers = ['developer', 'instagram', 'github']
-    @providers.each do |p|
-      possible_providers.delete(p)
-    end
-    @new_providers = possible_providers
   end
 
   def logout
