@@ -18,14 +18,14 @@ describe SessionsController do
     end
 
     it "should successfully create a session" do
-      session[:user_id].should be_nil
+      expect(session[:user_id]).to eq nil
       post :create
-      session[:user_id].should_not be_nil
+      expect(session[:user_id]).not_to eq nil
     end
 
     it "should redirect the user to welcome page" do
       post :create
-      response.should redirect_to welcome_path
+      expect(response).to redirect_to(welcome_path)
     end
 
   end
@@ -36,14 +36,14 @@ describe SessionsController do
     end
 
     it "should clear the session" do
-      session[:user_id].should_not be_nil
+      expect(session[:user_id]).not_to eq nil
       post :logout
-      session[:user_id].should be_nil
+      expect(session[:user_id]).to eq nil
     end
 
     it "should redirect to the home page" do
       post :logout
-      response.should redirect_to root_path
+      expect(response).to redirect_to(root_path)
     end
    end
 
