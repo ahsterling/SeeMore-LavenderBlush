@@ -45,22 +45,13 @@ end
 ## Formerly in spec_helper.rb, moved here on Bookis's recommendation
 OmniAuth.config.test_mode = true
 
-# OmniAuth.config.mock_auth[:developer] = OmniAuth::AuthHash.new({
-#   :provider => 'developer',
-#   :uid => '12345'
-#   })
-omniauth_hash = { 'provider' => 'developer',
-  'uid' => '12345',
-  'info' => {
-    'name' => 'Fred Flintstone',
-    'email' => 'fred@bedrock.com'
-  }
+OmniAuth.config.mock_auth[:developer] = OmniAuth::AuthHash.new({
+  :provider => 'developer',
+  :uid => '123545',
+  :info => { 'name' => 'Fred Flintstone', 'email' => 'fred@bedrock.com' }
+  })
 
-}
-
-OmniAuth.config.add_mock(:developer, omniauth_hash)
-
-# from https://github.com/intridea/omniauth/wiki/Integration-Testing
-
-####################
-# also see http://natashatherobot.com/rails-test-omniauth-sessions-controller/
+################################################################################
+# from: https://github.com/intridea/omniauth/wiki/Integration-Testing          #
+# also see: http://natashatherobot.com/rails-test-omniauth-sessions-controller #
+################################################################################
