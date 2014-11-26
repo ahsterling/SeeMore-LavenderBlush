@@ -9,6 +9,7 @@ gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'omniauth-github'
 gem 'omniauth-vimeo'
+gem 'omniauth-twitter'
 
 gem 'httparty'
 gem 'twitter'
