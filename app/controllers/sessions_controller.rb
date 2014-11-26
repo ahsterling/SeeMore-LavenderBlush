@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
     auth_hash = request.env['omniauth.auth']
 
+
     if session[:user_id] == nil
       user = User.includes(:credentials).references(:credentials).where("credentials.provider = '#{auth_hash.provider}' AND credentials.uid = '#{auth_hash.uid}'").first
       if user == nil
@@ -19,6 +20,7 @@ class SessionsController < ApplicationController
         else
           redirect_to root_path
         end
+
       end
       session[:user_id] = user.id
 
