@@ -19,12 +19,7 @@ describe SearchesController do
 
   describe 'POST "results"' do
 
-    context 'Twitter search' do
-      it 'displays results page with valid provider' do
-        post :results, {username: "Bookis", provider: "Twitter"}, {user_id: test_user.id}
-        expect(response.status).to eq 200
-      end
-
+    context 'General search' do
       it 'redirects when not logged in' do
         post :results, {username: "Bookis", provider: "Twitter"}
         expect(response).to redirect_to(root_path)
@@ -38,6 +33,13 @@ describe SearchesController do
       it 'does not display results page without provider' do
         post :results, {username: "Bookis"}, {user_id: test_user.id}
         expect(response).to redirect_to(search_path)
+      end
+    end
+
+    context 'Twitter search' do
+      it 'displays results page with valid provider' do
+        post :results, {username: "Bookis", provider: "Twitter"}, {user_id: test_user.id}
+        expect(response.status).to eq 200
       end
 
       it 'catches no search query' do
@@ -55,6 +57,24 @@ describe SearchesController do
         expect(assigns(:bookis)).to eq nil
       end
     end
+
+    context 'Vimeo search' do
+      it 'displays results page with valid provider' do
+        post :results, {username: "Bookis", provider: "Vimeo"}, {user_id: test_user.id}
+        expect(response.status).to eq 200
+      end
+
+      it 'catches no search query' do
+        post :results, {username: "", provider: "Vimeo"}, {user_id: test_user.id}
+        expect(response).to be_successful # doesn't have a specific catch, but no error if thrown
+      end
+
+      it 'does not freak out when no results' do
+        post :results, {username: "agj;owgijao2gin20g 0unszvnwanwban", provider: "Vimeo"}, {user_id: test_user.id}
+        expect(response).to be_successful
+      end
+    end
+
   end
 
 end
