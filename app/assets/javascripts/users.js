@@ -42,7 +42,7 @@ $(function() {
   $(".unsubscribe-results").on("click", function(e) {
     e.preventDefault();
 
-    e.preventDefault();
+
     var unBtn = $(this);
     var feed = $(this).parents(".feed-wrapper");
     var form = $(this).parents("form");
@@ -64,26 +64,30 @@ $(function() {
 
   $(".edit").click(function(e) {
     e.preventDefault();
-    $(".name").removeClass("hide");
-    $(".email").removeClass("hide");
+    $(".edit-user").removeClass("hide");
+    $(".account-info").addClass("hide");
     $(".save").removeClass("hide");
     $(".edit").addClass("hide");
   });
 
   $(".save").click(function(e) {
     e.preventDefault();
-    var form = $(".edit-user");
-    console.log(form);
+    var form = $(".edit-form");
+    var url = form.attr("action");
+    console.log(url);
+    // $(".edit").removeClass("hide");
 
-    $.ajax("/users", {
+
+
+    $.ajax(url, {
       type: "POST",
       data: form.serialize(),
       success: function() {
         console.log("save");
-        $(".name").addClass("hide");
-        $(".email").addClass("hide");
-        $(".edit").removeClass("hide");
+        $(".edit-user").addClass("hide");
+        $(".account-info").removeClass("hide");
         $(".save").addClass("hide");
+        $(".edit").removeClass("hide");
       }
     });
   });
