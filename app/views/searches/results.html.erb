@@ -24,15 +24,13 @@
           <td><%= result.location %></td>
           <td><%= result.followers_count %> followers</td>
           <td>
-            <%# if @user.has_feed?(result.id.to_s) %>
             <%= form_tag user_feeds_path, method: :post do %>
-              <div class = "unsubscribe-button-search">
+              <div class = 'unsubscribe-button'>
                 <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
                 <%= hidden_field_tag "delete_button[provider_uid]", result.id  %>
-                <p><%= submit_tag "Unsubscribe", class: "btn btn-danger" %></p>
+                <%= submit_tag "Unsubscribe", class: "btn btn-danger unsubscribe-results #{'hide' if !subscribed?(result)}" %>
               </div>
-              <% end %>
-            <%# else %>
+            <% end %>
             <%= form_tag feeds_path do %>
               <div class = "subscribe-button">
                 <%= hidden_field_tag "add_form[profile_url]", result.uri %>
@@ -40,9 +38,8 @@
                 <%= hidden_field_tag "add_form[avatar]", result.profile_image_uri(size = :bigger) %>
                 <%= hidden_field_tag "add_form[provider]", @provider %>
                 <%= hidden_field_tag "add_form[provider_uid]", result.id %>
-                <%= submit_tag "Add Feed", class: "subscribe btn btn-info" %>
+                <%= submit_tag "Add Feed", class: "btn btn-info subscribe #{'hide' if subscribed?(result)}" %>
               </div>
-            <%# end %>
             <% end %>
           </td>
         </tr>
