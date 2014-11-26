@@ -18,10 +18,10 @@
     </div> <!--row-->
     <div class = "bottom row">
       <ul>
-        <li><%= button_to "Sign In with Vimeo", "auth/vimeo", class: "btn btn-vimeo btn-default" %></li>
-        <li><%= button_to "Sign In with Github", "auth/github", class: "btn btn-default" %></li>
-        <li><%= button_to "Sign In with Twitter", "auth/twitter", class: "btn btn-default" %></li>
-        <li><%= button_to "Sign In with Instagram", "auth/instagram", class: "btn btn-default" %></li>
+        <li><%= link_to image_tag("vimeo-64.png", class: "vimeo img-circle"), "auth/vimeo" %></li>
+        <li><%= link_to image_tag("github-64.png", class: "github img-circle"), "auth/github" %></li>
+        <li><%= link_to image_tag("twitter-64.png", class: "twitter img-circle"), "auth/twitter" %></li>
+        <li><%= link_to image_tag("instagram-64.png", class: "instagram img-circle"), "auth/instagram" %></li>
       </ul>
     </div> <!--row-->
   </div> <!--container-->
