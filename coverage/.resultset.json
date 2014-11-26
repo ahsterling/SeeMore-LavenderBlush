@@ -5,6 +5,19 @@
         1,
         null
       ],
+      "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/helpers/subscribed_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/helpers/user_feeds_helper.rb": [
         1,
         null
@@ -346,12 +359,10 @@
         null,
         null,
         null,
-        null,
         1,
         1,
         1,
         1,
-        null,
         null,
         1,
         4,
@@ -375,12 +386,10 @@
       ],
       "/Users/bonniekwong/Ada/Week_12/SeeMore-LavenderBlush/app/models/credential.rb": [
         1,
-        null,
         1,
-        null,
         null
       ]
     },
-    "timestamp": 1416962821
+    "timestamp": 1417031347
   }
 }
