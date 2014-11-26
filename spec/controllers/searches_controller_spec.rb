@@ -68,6 +68,11 @@ describe SearchesController do
         post :results, {username: "", provider: "Vimeo"}, {user_id: test_user.id}
         expect(response).to be_successful # doesn't have a specific catch, but no error if thrown
       end
+
+      it 'does not freak out when no results' do
+        post :results, {username: "agj;owgijao2gin20g 0unszvnwanwban", provider: "Vimeo"}, {user_id: test_user.id}
+        expect(response).to be_successful
+      end
     end
 
   end

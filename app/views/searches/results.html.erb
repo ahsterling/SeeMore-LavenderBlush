@@ -1,6 +1,49 @@
 
 <% if @results.empty? %>
-  <p>Sorry, no users found! Try again... </p>
+
+  <h3>Sorry, no users found! Try again... </h3>
+
+  <p>Looking for a suggestion?</p>
+
+  <table class="table table-hover text-left">
+    <tr>
+      <th></th>
+      <th>Username</th>
+      <th>User Description</th>
+      <th>User Location</th>
+      <th>Followers</th>
+      <th>Add Feed</th>
+    </tr>
+    <tr class = "feed-wrapper">
+      <td><%= image_tag @bookis.profile_image_uri(size = :bigger), class: "img-circle" %></td>
+      <td><%= link_to @bookis.screen_name, "#{@bookis.url}" %></td>
+      <td><%= @bookis.description %></td>
+      <td><%= @bookis.location %></td>
+      <td><%= @bookis.followers_count %> followers</td>
+      <td>
+        <% if @user.has_feed?(@bookis.id.to_s) %>
+        <%= form_tag user_feeds_path, method: :post do %>
+        <div class = "unsubscribe-button-search">
+          <%= hidden_field_tag "delete_button[provider]", "Twitter" %>
+          <%= hidden_field_tag "delete_button[provider_uid]", @bookis.id  %>
+          <p><%= submit_tag "Unsubscribe", class: "unsubscribe btn btn-danger" %></p>
+        </div>
+        <% end %>
+        <% else %>
+        <%= form_tag feeds_path do %>
+        <div class = "subscribe-button">
+          <%= hidden_field_tag "add_form[profile_url]", @bookis.uri %>
+          <%= hidden_field_tag "add_form[handle]", @bookis.screen_name %>
+          <%= hidden_field_tag "add_form[avatar]", @bookis.profile_image_uri(size = :bigger) %>
+          <%= hidden_field_tag "add_form[provider]", @provider %>
+          <%= hidden_field_tag "add_form[provider_uid]", @bookis.id %>
+          <%= submit_tag "Add Feed", class: "subscribe btn btn-info" %>
+        </div>
+        <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
 
 <% else %>
 
