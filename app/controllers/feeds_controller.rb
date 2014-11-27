@@ -19,6 +19,11 @@ class FeedsController < ApplicationController
     redirect_to welcome_path, notice: "Feed Refreshed!"
   end
 
+  def bulk_happy
+    Feed.bulk_happy(session[:user_id])
+    redirect_to welcome_path, notice: "You feed is now infused with happy!"
+  end
+
 
   private
 
