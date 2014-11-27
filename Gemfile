@@ -13,6 +13,8 @@ gem 'omniauth-twitter'
 
 gem 'httparty'
 gem 'twitter'
+gem 'twitter-text', '~> 1.10.0'
+#gem 'rails_autolink'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

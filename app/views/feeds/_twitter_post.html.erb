@@ -3,17 +3,17 @@
 <td><%= link_to image_tag(object.feed.avatar, class: "img-circle"), object.feed.profile_url, target: "_blank" %></td>
 
 <td>
-  <a href= '<%= object.post_url %>' target= "_blank">
+  <!-- <a href= '<%= object.post_url %>' target= "_blank"> -->
     <div class = "post-content-wrapper">
       <div class="post-content">
-        <%= object.text_content %>
+        <%= auto_link(object.text_content, target: "_blank").html_safe %>
       </div>
       <% if object.media_url %>
-        <div class="post-image"><%= image_tag "#{object.media_url}:small", class: "img img-rounded" %></div>
+        <%= link_to image_tag("#{object.media_url}:small", class: "img post-image img-rounded"), object.media_url, target: "_blank"  %>
       <% end %>
       <div class="post-date">
         <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %>
       </div>
     </div>
-  </a>
+  <!-- </a> -->
 </td>
