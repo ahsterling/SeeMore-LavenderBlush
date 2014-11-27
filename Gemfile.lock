@@ -202,11 +202,16 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    twitter-text (1.10.0)
+      unf (~> 0.1.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
     vimeo (1.5.4)
       httparty (>= 0.4.5)
       httpclient (>= 2.1.5.2)
@@ -240,5 +245,6 @@ DEPENDENCIES
   simplecov
   spring
   twitter
+  twitter-text (~> 1.10.0)
   uglifier (>= 1.3.0)
   vimeo

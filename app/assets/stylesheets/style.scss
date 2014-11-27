@@ -4,6 +4,9 @@ body {
   padding-top: 120px;
 }
 
+ul {
+  padding-left: 0;
+}
 
 
 .home_page {
@@ -97,9 +100,13 @@ body nav,
     // border: solid purple;
     border-radius: 1em;
     margin: 2px;
+  }
 
+  .btn:hover {
+    background-color: #7e47b9;
 
   }
+
   #buttons {
     display: inline-block;
     float: right;
@@ -119,11 +126,13 @@ body nav,
 
 }
 
+
+
 #search-bar {
   display: block;
   height: auto;
   background-color: rgb(245,0,227);
-
+  // background-color: white;
   color: white;
   margin-top: 70px;
   margin-left: 0;
@@ -156,7 +165,7 @@ body nav,
 .navbar-inverse a.navbar-brand:hover {
   color: #7F5261;
   color: pink;
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -242,12 +251,18 @@ table {
 
 .form-control {
   height: 28px;
+  width: 30%;
+}
+
+.edit-user .form-control {
   width: 100%;
 }
 
 .name-label {
   text-align: left;
 }
+
+
 
 @media (max-width: 765px) {
   body {
