@@ -19,7 +19,7 @@
           <%= link_to "<h2>LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
           <div id="buttons">
             <%= link_to "My Account", user_path(current_user.id), class: "my-account-btn btn btn-default" %>
-            <%= button_to "#{User.find(session[:user_id]).name} Sign Out", :logout, class: "btn btn-default" %>
+            <%= button_to "#{User.find(session[:user_id]).name} | Sign Out", :logout, class: "btn btn-default sign-out-btn" %>
           </div>
         </div>
 

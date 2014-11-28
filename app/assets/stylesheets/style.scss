@@ -108,11 +108,16 @@ body nav,
   }
 
   #buttons {
-    display: inline-block;
+    // display: inline-block;
     float: right;
     width: 400px;
     padding-right: 20px;
     text-align: right;
+    margin-top: 15px;
+  }
+
+  #buttons form {
+    display: inline-block;
   }
 }
 
@@ -132,6 +137,10 @@ body nav,
   border: none;
 }
 
+.modal-image {
+  max-width: 100%;
+}
+
 .post-image {
   border-radius: 3px;
 }
@@ -140,12 +149,12 @@ body nav,
   display: block;
   height: auto;
   background-color: rgb(245,0,227);
-  // background-color: white;
   color: white;
   margin-top: 70px;
   margin-left: 0;
   padding-top: 10px;
   padding-left: 35px;
+  padding-bottom: 10px;
   // border: solid blue;
 
 
@@ -160,6 +169,10 @@ body nav,
 
 #search-fields {
   padding-left: 35px;
+  position: fixed;
+  width: 300px;
+  z-index: 100;
+  margin-top: 10px;
 
 }
 
@@ -172,7 +185,7 @@ body nav,
 
 .navbar-inverse a.navbar-brand:hover {
   color: #7F5261;
-  color: pink;
+  color: #cc96f8;
   // text-decoration: underline;
 }
 
@@ -259,7 +272,7 @@ table {
 
 .form-control {
   height: 28px;
-  width: 30%;
+  width: 100%;
 }
 
 .edit-user .form-control {
@@ -303,4 +316,10 @@ table {
 
 
 
+}
+
+@media (max-width: 532px) {
+  .avatar-provider {
+    display: block;
+  }
 }
