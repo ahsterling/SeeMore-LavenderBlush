@@ -1,3 +1,5 @@
+<div id="results-page">
+
 
 <% if @results.empty? %>
   <p>Sorry, no users found! Try again... </p>
@@ -16,8 +18,8 @@
         <th>Followers</th>
         <th>Add Feed</th>
       </tr>
-      <% @results.each do |result| %>
-        <tr class = "feed-wrapper">
+      <% @results.each_with_index do |result, idx| %>
+        <tr id = "idx<%=idx%>" class = "feed-wrapper">
           <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
           <td><%= link_to result.screen_name, "#{result.url}" %></td>
           <td><%= result.description %></td>
@@ -91,3 +93,5 @@
   <% end %>
 
 <% end %>
+
+</div>
