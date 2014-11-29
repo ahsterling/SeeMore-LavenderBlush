@@ -5,18 +5,16 @@
 <td><%= link_to image_tag(object.feed.avatar, class: "img-circle"), object.feed.profile_url, target: "_blank" %></td>
 
 <td>
-  <a href = '<%= object.post_url %>' target= "_blank">
-    <div class = "post-content-wrapper">
-      <div class="vimeo-text">
-        <% code = /https:\/\/vimeo\.com\/(\d+)/.match( object.media_url )[1] %>
-        <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="356" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <div class = "post-content-wrapper">
+    <div class="vimeo-text">
+      <% code = /https:\/\/vimeo\.com\/(\d+)/.match( object.media_url )[1] %>
+      <iframe id="player1" src="//player.vimeo.com/video/<%= code %>?api=1&player_id=player1" width="356" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-        <ul class = "vimeo-description" >
-          <li> <strong><%= object.text_content.html_safe %></strong> </li>
-          <li> <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %> </li>
-          <li> <%= object.feed.handle %> </li>
-        </ul>
-      </div>
+      <ul class = "vimeo-description" >
+        <li> <strong><%= object.text_content.html_safe %></strong> </li>
+        <li> <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %> </li>
+        <li> <%= object.feed.handle %> </li>
+      </ul>
     </div>
-  </a>
+  </div>
 </td>

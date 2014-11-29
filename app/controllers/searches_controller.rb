@@ -12,9 +12,10 @@ class SearchesController < ApplicationController
     @provider = params[:provider]
     if @provider == "Twitter"
       twitter_search
+      add_bookis
     elsif @provider == "Vimeo"
-
       vimeo_search
+      add_bookis
     else
       redirect_to search_path
     end
@@ -37,10 +38,9 @@ class SearchesController < ApplicationController
     client = twitter_client
     # username is the variable twitter uses to represent the twitter handle
     # for their searches. user_search is a twitter method
+
     @results = client.user_search(params[:username], { count: 100 })
-    if @results.empty?
-      @bookis = client.user(8553052)
-    end
+
   end
 
   def vimeo_search
@@ -49,10 +49,11 @@ class SearchesController < ApplicationController
     beemos.each do |beemo|
       @results << Vimeo::Simple::User.info(beemo.uid)
     end
-    if @results.class == []
-      redirect_to search_path, notice: "Your search had no results."
-    else
-      return @results
+  end
+
+  def add_bookis
+    if @results.empty?
+      @bookis = twitter_client.user(8553052)
     end
   end
 

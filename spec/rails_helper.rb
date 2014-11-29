@@ -41,3 +41,17 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+## Formerly in spec_helper.rb, moved here on Bookis's recommendation
+OmniAuth.config.test_mode = true
+
+OmniAuth.config.mock_auth[:developer] = OmniAuth::AuthHash.new({
+  :provider => 'developer',
+  :uid => '123545',
+  :info => { 'name' => 'Fred Flintstone', 'email' => 'fred@bedrock.com' }
+  })
+
+################################################################################
+# from: https://github.com/intridea/omniauth/wiki/Integration-Testing          #
+# also see: http://natashatherobot.com/rails-test-omniauth-sessions-controller #
+################################################################################

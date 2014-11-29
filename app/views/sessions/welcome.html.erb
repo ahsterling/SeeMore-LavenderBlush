@@ -7,11 +7,14 @@
 </div>
 
 <% if @user.posts.any? %>
-  <%= button_to "Refresh My Feeds", feeds_path, class: "btn btn-default", method: :patch %>
-<% end %>
+
+  <div class="feed-buttons">
+    <%= button_to "Refresh My Feeds", feeds_path, class: "btn btn-default", method: :patch %>
+    <%= render "shared/bulk_happy" %>
+  </div>
+
 
 <table class = "table table-hover text-left">
-
   <% @posts.each_with_index do |post, idx| %>
     <tr class= "post-wrapper" id = "idx<%=idx%>"  >
       <% if post.feed.provider == "Twitter" %>
@@ -20,8 +23,11 @@
         <%= render "feeds/vimeo_post", object: post %>
       <% end %>
     </tr>
-
+  </table>
 
   <% end %>
 
-</table>
+
+<% else %>
+  <%= render "shared/bulk_happy" %>
+<% end %>

@@ -3,17 +3,37 @@
 <td><%= link_to image_tag(object.feed.avatar, class: "img-circle"), object.feed.profile_url, target: "_blank" %></td>
 
 <td>
-  <a href= '<%= object.post_url %>' target= "_blank">
+  <!-- <a href= '<%= object.post_url %>' target= "_blank"> -->
     <div class = "post-content-wrapper">
       <div class="post-content">
-        <%= object.text_content %>
+        <%= auto_link(object.text_content, target: "_blank").html_safe %>
       </div>
       <% if object.media_url %>
-        <div class="post-image"><%= image_tag "#{object.media_url}:small", class: "img img-rounded" %></div>
+        <button type="button" class="modal-img-btn" data-toggle="modal" data-target="#myModal<%= object.id %>">
+          <%= image_tag "#{object.media_url}:small", class: "post-image" %>
+        </button>
+        <div class="modal fade" id="myModal<%= object.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="post-content">
+                  <%= auto_link(object.text_content, target: "_blank").html_safe %>
+                </div>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              </div>
+              <div class="modal-body">
+                <%= image_tag object.media_url, class: "modal-image" %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
       <div class="post-date">
         <%= DateTime.parse(object.date).strftime("%B %-d, %Y %k:%M:%S") %>
       </div>
     </div>
-  </a>
+  <!-- </a> -->
 </td>
