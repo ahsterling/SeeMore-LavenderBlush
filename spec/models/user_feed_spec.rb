@@ -25,10 +25,6 @@ describe UserFeed do
 
   describe '#find_existing_user_feeds' do
 
-    def self.find_existing_user_feed(session, feed)
-      UserFeed.find_by(user_id: session[:user_id], feed_id: feed.id)
-    end
-
     let(:user) { User.create(name: 'cat') }
     let(:feed) { Feed.create(handle: 'catz', provider: 'Twitter', provider_uid: 123) }
     let(:user_feed) { UserFeed.create(user_id: user.id, feed_id: feed.id) }
@@ -38,14 +34,14 @@ describe UserFeed do
       user
       feed
       user_feed
-      expect(UserFeed.find_existing_user_feed(session, feed)).to be_a UserFeed
+      expect(UserFeed.find_existing_user_feed(user.id, feed)).to be_a UserFeed
     end
 
     it 'finds matching user_feed in db' do
       user
       feed
       user_feed
-      expect(UserFeed.find_existing_user_feed(session, feed).id).to eq user_feed.id
+      expect(UserFeed.find_existing_user_feed(user.id, feed).id).to eq user_feed.id
     end
 
   end

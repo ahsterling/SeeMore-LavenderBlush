@@ -5,12 +5,12 @@ class UserFeed < ActiveRecord::Base
 
   class FeedError < RuntimeError; end
 
-  def self.find_existing_user_feed(session, feed)
-    self.find_by(user_id: session[:user_id], feed_id: feed.id)
+  def self.find_existing_user_feed(user_id, feed)
+    self.find_by(user_id: user_id, feed_id: feed.id)
   end
 
   def self.add_existing_feed(feed, session)
-    if self.find_existing_user_feed(session, feed)
+    if self.find_existing_user_feed(session[:user_id], feed)
       raise FeedError.new
     else
       self.create_user_feed_and_posts(feed, session[:user_id])
