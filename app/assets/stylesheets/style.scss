@@ -160,6 +160,13 @@ body nav,
   padding-left: 35px;
   padding-bottom: 10px;
   // border: solid blue;
+  ul {
+    list-style: none;
+  }
+  li {
+    padding: 0;
+    float: left;
+  }
 
 
 
@@ -175,8 +182,7 @@ body nav,
   padding-left: 35px;
   position: fixed;
   width: 300px;
-  z-index: 100;
-  margin-top: 10px;
+  z-index: 3;
 
 }
 

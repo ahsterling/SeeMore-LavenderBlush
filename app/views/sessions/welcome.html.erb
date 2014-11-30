@@ -15,12 +15,13 @@
 
 
 <table class = "table table-hover text-left">
-  <% @posts.each_with_index do |post, idx| %>
-    <tr class= "post-wrapper" id = "idx<%=idx%>"  >
+  <% @this_page.each_with_index do |post, idx| %>
+    <tr id="idx<%=idx%>", class= "post-wrapper"   >
       <% if post.feed.provider == "Twitter" %>
         <%= render "feeds/twitter_post", object: post %>
+
       <% elsif post.feed.provider == "Vimeo" %>
-        <%= render "feeds/vimeo_post", object: post %>
+      <%= render "feeds/vimeo_post", object: post %>
       <% end %>
     </tr>
   </table>

@@ -31,10 +31,13 @@ class SessionsController < ApplicationController
   end
 
 
-  def welcome
+  def welcome(start = 0)
     @user = User.find_by(id: session[:user_id])
-    @posts = @user.posts.order(date: :desc).limit(50)
-  end
+    # @posts = @user.posts.order(date: :desc)[pg,50]
+    all_posts = SessionsHelper::FeedPage.new(@user, start)
+    @this_page = all_posts.this_page #based on start value this page will contain post at start index
+    @next_page = all_posts.next_page
+    end
 
   def logout
     session[:user_id] = nil

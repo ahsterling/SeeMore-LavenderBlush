@@ -101,8 +101,8 @@
         <th>User Location</th>
         <th>Add Feed</th>
       </tr>
-      <% @results.each do |result| %>
-        <tr>
+      <% @results.each_with_index do |result,idx| %>
+        <tr id = "idx<%=idx%>">
           <td><%= image_tag result["portrait_medium"], class: "img-circle" %></td>
           <td><%= link_to result["display_name"], "#{result['profile_url']}" %></td>
           <td><%= result["location"]%></td>
