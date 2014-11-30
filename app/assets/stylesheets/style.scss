@@ -149,16 +149,16 @@ body nav,
   border-radius: 3px;
 }
 
-.redacted {
+.redacted span {
   background-color: rgb(245,0,227);
   color: rgb(245,0,227);
 }
 
-.redacted a {
+.redacted span a {
   color: rgb(245,0,227);
 }
 
-.redacted:hover {
+.redacted span:hover {
   background-color: white;
   color: black;
 }

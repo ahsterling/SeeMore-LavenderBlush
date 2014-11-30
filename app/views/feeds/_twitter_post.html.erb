@@ -6,7 +6,7 @@
   <!-- <a href= '<%= object.post_url %>' target= "_blank"> -->
     <div class = "post-content-wrapper">
       <div class="post-content <%= sentiment(object.text_content) %>">
-        <%= auto_link(object.text_content, target: "_blank").html_safe %>
+        <span><%= auto_link(object.text_content, target: "_blank").html_safe %></span>
       </div>
       <% if object.media_url %>
         <button type="button" class="modal-img-btn" data-toggle="modal" data-target="#myModal<%= object.id %>">
