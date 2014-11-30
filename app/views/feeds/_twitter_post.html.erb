@@ -5,7 +5,7 @@
 <td>
   <!-- <a href= '<%= object.post_url %>' target= "_blank"> -->
     <div class = "post-content-wrapper">
-      <div class="post-content">
+      <div class="post-content <%= sentiment(object.text_content) %>">
         <%= auto_link(object.text_content, target: "_blank").html_safe %>
       </div>
       <% if object.media_url %>

@@ -149,6 +149,20 @@ body nav,
   border-radius: 3px;
 }
 
+.redacted {
+  background-color: rgb(245,0,227);
+  color: rgb(245,0,227);
+}
+
+.redacted a {
+  color: rgb(245,0,227);
+}
+
+.redacted:hover {
+  background-color: white;
+  color: black;
+}
+
 #search-bar {
   display: block;
   height: auto;

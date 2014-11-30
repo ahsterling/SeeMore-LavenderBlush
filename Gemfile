@@ -53,6 +53,7 @@ gem 'vimeo'
 gem 'beemo'
 gem 'rails_12factor', group: :production
 
+gem "sentimental"
 
 
 # Use ActiveModel has_secure_password
