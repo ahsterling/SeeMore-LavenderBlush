@@ -29,6 +29,13 @@ describe Post do
       }.to change{ feed.posts.count }.by_at_least(1)
     end
 
+    it 'does not add duplicate posts' do
+      Post.get_tweets(feed)
+      expect {
+        Post.get_tweets(feed)
+      }.to change{ feed.posts.count }.by(0)
+    end
+
   end
 
   describe '#get_videos' do
@@ -39,6 +46,13 @@ describe Post do
       expect {
         Post.get_videos(feed)
       }.to change{ feed.posts.count }.by_at_least(1)
+    end
+
+    it 'does not add duplicate posts' do
+      Post.get_videos(feed)
+      expect {
+        Post.get_videos(feed)
+      }.to change{ feed.posts.count }.by(0)
     end
 
   end
