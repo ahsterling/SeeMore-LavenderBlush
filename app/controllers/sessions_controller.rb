@@ -33,7 +33,9 @@ class SessionsController < ApplicationController
 
   def welcome
     @user = User.find_by(id: session[:user_id])
-    @posts = @user.posts.order(date: :desc).paginate(page: params[:page]).per_page(5)
+    # @posts = @user.posts.order(date: :desc).paginate(page: params[:page]).per_page(5)
+    @posts = @user.posts.order(date: :desc).page(params[:page]).per_page(5)
+    
     # all_posts = SessionsHelper::FeedPage.new(@user, start)
     # @this_page = all_posts.this_page #based on start value this page will contain post at start index
     # @next_page = all_posts.next_page
