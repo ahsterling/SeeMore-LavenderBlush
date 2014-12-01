@@ -2,3 +2,4 @@
 
 $('#posts').append('<%= j render(partial: "posts/posts", locals: {posts: @posts}) %>');
 $('.pagination').replaceWith(' <%= j will_paginate(@posts) %>');
+attach_events();
