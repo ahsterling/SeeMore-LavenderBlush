@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :development, :test do
   gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'flog'
 end
 
 gem 'omniauth'
@@ -45,6 +46,7 @@ gem 'spring',        group: :development
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman', :require => false
 end
 
 gem 'simplecov', :require => false, :group => :test
