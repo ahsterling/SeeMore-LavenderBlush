@@ -41,4 +41,23 @@ describe Feed do
 
   end
 
+  describe '#bulk_happy' do
+
+    let(:user) { User.create(name: 'cat') }
+
+    it 'adds all new user_feeds if none already added' do
+      expect {
+        Feed.bulk_happy(user.id)
+      }.to change{ user.feeds.count }.by(10)
+    end
+
+    it 'does not add duplicate user_feeds' do
+      Feed.bulk_happy(user.id)
+      expect {
+        Feed.bulk_happy(user.id)
+      }.to change{ user.feeds.count }.by(0)
+    end
+
+  end
+
 end
