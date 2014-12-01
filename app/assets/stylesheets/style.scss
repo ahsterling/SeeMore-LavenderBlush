@@ -4,6 +4,9 @@ body {
   padding-top: 120px;
 }
 
+ul {
+  padding-left: 0;
+}
 
 
 .home_page {
@@ -97,35 +100,73 @@ body nav,
     // border: solid purple;
     border-radius: 1em;
     margin: 2px;
+  }
 
+  .btn:hover {
+    background-color: #7e47b9;
 
   }
+
   #buttons {
-    display: inline-block;
+    // display: inline-block;
     float: right;
     width: 400px;
     padding-right: 20px;
     text-align: right;
+    margin-top: 15px;
+  }
+
+  #buttons form {
+    display: inline-block;
   }
 }
 
+.feed-buttons div,
+.feed-buttons form {
+  display: inline-block;
+}
 
 .form-control{
   width: 30%;
 
 }
 
+.modal-img-btn {
+  border: none;
+  background-color: white;
+  padding: 0;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-image {
+  max-width: 100%;
+}
+
+.post-image {
+  border-radius: 3px;
+}
+
 #search-bar {
   display: block;
   height: auto;
   background-color: rgb(245,0,227);
-
   color: white;
   margin-top: 70px;
   margin-left: 0;
   padding-top: 10px;
   padding-left: 35px;
+  padding-bottom: 10px;
   // border: solid blue;
+  ul {
+    list-style: none;
+  }
+  li {
+    padding: 0;
+    float: left;
+  }
 
 
 
@@ -139,6 +180,9 @@ body nav,
 
 #search-fields {
   padding-left: 35px;
+  position: fixed;
+  width: 300px;
+  z-index: 3;
 
 }
 
@@ -151,8 +195,8 @@ body nav,
 
 .navbar-inverse a.navbar-brand:hover {
   color: #7F5261;
-  color: pink;
-  text-decoration: underline;
+  color: #cc96f8;
+  // text-decoration: underline;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -236,6 +280,64 @@ table {
   visibility: hidden;
 }
 
+.form-control {
+  height: 28px;
+  width: 100%;
+}
+
+.edit-user .form-control {
+  width: 100%;
+}
+
+.name-label {
+  text-align: left;
+}
+
+.pagination {
+  background: white;
+  cursor: default;
+  height: 22px;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    display: none;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1;
+  }
+  a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5;
+    &:hover, &:focus {
+      color: #000033;
+      border-color: #000033;
+    }
+  }
+  .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    b {
+      color: #000033;
+      background: #2e6ab1 + 60;
+      padding: 0.1em 0.25em;
+    }
+  }
+}
+
+
 
 @media (max-width: 765px) {
   body {
@@ -268,4 +370,10 @@ table {
 
 
 
+}
+
+@media (max-width: 532px) {
+  .avatar-provider {
+    display: block;
+  }
 }

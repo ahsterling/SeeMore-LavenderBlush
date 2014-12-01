@@ -18,29 +18,34 @@
           <span id="cat"><%= image_tag "lavender_blush_copy2.png", width: "80px", height: "60px" %></span>
           <%= link_to "<h2>LavenderBlush</h2>".html_safe, root_path, class: "navbar-brand" %>
           <div id="buttons">
-            <%= link_to "My Account", user_path(current_user.id), class: "btn btn-default" %>
-            <%= button_to "#{User.find(session[:user_id]).name} Sign Out", :logout, class: "btn btn-default" %>
-        </div>
+            <%= link_to "My Account", user_path(current_user.id), class: "my-account-btn btn btn-default" %>
+            <%= button_to "#{User.find(session[:user_id]).name} | Sign Out", :logout, class: "btn btn-default sign-out-btn" %>
+          </div>
         </div>
 
-<!-- ##################### -->
-    <div id="search-bar" >
-      <span>Search With:
-      <%= image_tag "twitter_32.png", class: "twitter-bird img-circle" %>
-      <%= image_tag "vimeo_32.png", class: "vimeo-v img-circle" %> </span>
-    </div>
+
+        <div id="search-bar" >
+          <ul >
+            <li >
+              Search With:
+              <%= image_tag "twitter_32.png", class: "twitter-bird img-circle" %>
+              <%= image_tag "vimeo_32.png", class: "vimeo-v img-circle" %>
+            </li>
+            <li>
+              <div id="search-fields">
+                <div id="twitter-search" class = "search-icon">
+                  <%= render "shared/twitter_search" %>
+                </div>
+                <div id="vimeo-search" class = "search-icon">
+                  <%= render "shared/vimeo_search" %>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
   </nav>
 
-    <div id="search-fields">
-      <div id="twitter-search" class = "search-icon">
-        <%= render "shared/twitter_search" %>
-      </div>
-      <div id="vimeo-search" class = "search-icon">
-        <%= render "shared/vimeo_search" %>
-      </div>
-    </div>
-
-  </div>
 
 
   <% end %>

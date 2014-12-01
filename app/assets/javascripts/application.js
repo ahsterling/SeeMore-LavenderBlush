@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require waypoints.min
+
 
 //= require_tree .

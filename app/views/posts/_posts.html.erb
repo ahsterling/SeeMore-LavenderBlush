@@ -1,0 +1,13 @@
+
+
+
+
+  <% posts.each_with_index do |post, idx| %>
+    <tr class= "post-wrapper" id = "idx<%=idx%>"  >
+      <% if post.feed.provider == "Twitter" %>
+        <%= render "feeds/twitter_post", object: post %>
+      <% elsif post.feed.provider == "Vimeo" %>
+        <%= render "feeds/vimeo_post", object: post %>
+      <% end %>
+    </tr>
+  <% end %>

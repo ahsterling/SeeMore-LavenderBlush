@@ -9,9 +9,13 @@ gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'omniauth-github'
 gem 'omniauth-vimeo'
+gem 'omniauth-twitter'
 
 gem 'httparty'
 gem 'twitter'
+gem 'twitter-text', '~> 1.10.0'
+#gem 'rails_autolink'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -48,6 +52,9 @@ gem 'simplecov', :require => false, :group => :test
 gem 'vimeo'
 gem 'beemo'
 gem 'rails_12factor', group: :production
+
+gem 'will_paginate', '>3.0.6'
+
 
 
 

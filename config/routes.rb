@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "/sessions/create", to: "sessions#create"
   get "/sessions/welcome", to: "sessions#welcome", as: :welcome
 
+  post "/users/:id",            to: "users#update"
   get "/users/:id",        to: "users#show", as: :user
 
 
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get  "/feeds",           to: "feeds#feed",     as: :feeds
   post "/feeds",           to: "feeds#create"
   patch "/feeds",          to: "feeds#update"
+  post "/feeds/bulk-happy", to: "feeds#bulk_happy", as: :bulk_happy
 
   get "/feeds/vimeo",      to: "feeds#vimeo"
   get "/feeds/twitter",    to: "feeds#twitter"

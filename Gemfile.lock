@@ -110,6 +110,9 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-twitter (1.1.0)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     omniauth-vimeo (1.0.2)
       multi_json (~> 1.10)
       omniauth-oauth (~> 1.0)
@@ -173,7 +176,6 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     spring (1.1.3)
-    spring (1.2.0)
     sprockets (2.11.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -200,17 +202,23 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    twitter-text (1.10.0)
+      unf (~> 0.1.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
     vimeo (1.5.4)
       httparty (>= 0.4.5)
       httpclient (>= 2.1.5.2)
       json (>= 1.1.9)
       multipart-post (>= 1.0.1)
       oauth (>= 0.4.3)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -227,6 +235,7 @@ DEPENDENCIES
   omniauth
   omniauth-github
   omniauth-instagram
+  omniauth-twitter
   omniauth-vimeo
   pg
   rails (= 4.1.5)
@@ -237,5 +246,7 @@ DEPENDENCIES
   simplecov
   spring
   twitter
+  twitter-text (~> 1.10.0)
   uglifier (>= 1.3.0)
   vimeo
+  will_paginate (> 3.0.6)
