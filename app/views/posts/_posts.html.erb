@@ -2,7 +2,7 @@
 
 
 
-  <% @next_page.each_with_index do |post, idx| %>
+  <% posts.each_with_index do |post, idx| %>
     <tr class= "post-wrapper" id = "idx<%=idx%>"  >
       <% if post.feed.provider == "Twitter" %>
         <%= render "feeds/twitter_post", object: post %>
