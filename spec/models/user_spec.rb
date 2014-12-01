@@ -31,4 +31,18 @@ describe User do
     end
   end
 
+  describe '#other_providers' do
+    it 'returns an array' do
+      user = User.create()
+      expect(user.other_providers.class).to eq Array
+    end
+
+    it 'does not return providers that are connected' do
+      user = User.create()
+      Credential.create(provider: "Twitter", user_id: user.id)
+      expect(user.other_providers).to_not include "Twitter"
+    end
+    
+  end
+
 end
