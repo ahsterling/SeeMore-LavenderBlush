@@ -13,21 +13,21 @@ class Feed < ActiveRecord::Base
 
   def self.bulk_happy(user_id)
     happy_hash = { "785588682" => "emergency_fox",
-                   "19638752" => "NicestHippo",
+                   "19638752"  => "NicestHippo",
                    "568825492" => "CuteEmergency",
-                   "17045060" => "NationalZoo",
-                   "1337271" => "darth",
+                   "17045060"  => "NationalZoo",
+                   "1337271"   => "darth",
                    "627799297" => "iamkidpresident",
-                   "15473958" => "MarsCuriosity",
+                   "15473958"  => "MarsCuriosity",
                    "740109097" => "SarcasticRover",
-                   "19725644" => "neiltyson",
+                   "19725644"  => "neiltyson",
                    "549571045" => "FacesAndThings" }
 
     happy_hash.each do |key, value|
       unless feed = self.find_existing_feed({ provider: "Twitter", provider_uid: key })
         feed = Feed.create(handle: value, provider: "Twitter", provider_uid: key)
       end
-      unless UserFeed.find_existing_user_feed({session: {user_id: user_id}}, feed)
+      unless UserFeed.find_existing_user_feed(user_id, feed)
         UserFeed.create(feed_id: feed.id, user_id: user_id)
         Post.get_new_feed_posts(feed)
       end
