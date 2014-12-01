@@ -230,7 +230,6 @@
         1,
         null,
         1,
-        null,
         5,
         null,
         5,
@@ -250,9 +249,7 @@
         0,
         null,
         null,
-        null,
         5,
-        null,
         null,
         0,
         null,
@@ -431,12 +428,10 @@
         null,
         null,
         null,
-        null,
         1,
         1,
         1,
         1,
-        null,
         null,
         1,
         4,
@@ -460,12 +455,10 @@
       ],
       "/Users/Allie/Ada/rails_projects/SeeMore-LavenderBlush/app/models/credential.rb": [
         1,
-        null,
         1,
-        null,
         null
       ]
     },
-    "timestamp": 1417470330
+    "timestamp": 1417471655
   }
 }
