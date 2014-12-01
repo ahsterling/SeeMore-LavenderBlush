@@ -1,6 +1,7 @@
 var attach_events = function(){
 
 
+
   $(window).scroll(function(){
     var url = $(".next_page").attr("href");
     if(url && $(window).scrollTop() > $(document).height() - $(window).height() - 50)
@@ -10,6 +11,7 @@ var attach_events = function(){
         return false;
       }
   });
+
 
 };
 

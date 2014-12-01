@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_or_create_tweet(tweet, feed)
-    if Post.where("feed_id = '#{feed.id}' AND provider_id = '#{tweet.id}'").empty?
+    if Post.where("feed_id = ? AND provider_id = ?", "#{feed.id}", "#{tweet.id}").empty?
       post = Post.create(date: tweet.created_at,
                          provider_id: tweet.id,
                          text_content: tweet.text,
@@ -44,7 +44,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_or_create_vimeo(video, feed)
-    if Post.where("feed_id = '#{feed.id}' AND provider_id = '#{video['id']}'").empty?
+    if Post.where("feed_id = ? AND provider_id = ?", "#{feed.id}", "#{video['id']}").empty?
       Post.create(date: video["upload_date"],
                   provider_id: video["id"],
                   text_content: video["title"],
