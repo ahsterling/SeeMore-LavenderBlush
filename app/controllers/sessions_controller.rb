@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
     auth_hash = request.env['omniauth.auth']
 
     if session[:user_id] == nil
-      user = User.includes(:credentials).references(:credentials).where("credentials.provider = '#{auth_hash.provider}' AND credentials.uid = '#{auth_hash.uid}'").first
+      user = User.includes(:credentials).references(:credentials).where(
+        "credentials.provider = ? AND credentials.uid = ?", "#{auth_hash.provider}", "#{auth_hash.uid}"
+        ).first
       if user == nil
         user = User.new(
                 name: auth_hash.info.name,
