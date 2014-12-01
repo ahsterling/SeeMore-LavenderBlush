@@ -1,3 +1,5 @@
+<div id="results-page">
+
 
 <% if @results.empty? %>
 
@@ -59,8 +61,8 @@
         <th>Followers</th>
         <th>Add Feed</th>
       </tr>
-      <% @results.each do |result| %>
-        <tr class = "feed-wrapper">
+      <% @results.each_with_index do |result, idx| %>
+        <tr id = "idx<%=idx%>" class = "feed-wrapper">
           <td><%= image_tag result.profile_image_uri(size = :bigger), class: "img-circle" %></td>
           <td><%= link_to result.screen_name, "#{result.url}" %></td>
           <td><%= result.description %></td>
@@ -99,8 +101,8 @@
         <th>User Location</th>
         <th>Add Feed</th>
       </tr>
-      <% @results.each do |result| %>
-        <tr>
+      <% @results.each_with_index do |result,idx| %>
+        <tr id = "idx<%=idx%>">
           <td><%= image_tag result["portrait_medium"], class: "img-circle" %></td>
           <td><%= link_to result["display_name"], "#{result['profile_url']}" %></td>
           <td><%= result["location"]%></td>
@@ -133,3 +135,5 @@
   <% end %>
 
 <% end %>
+
+</div>

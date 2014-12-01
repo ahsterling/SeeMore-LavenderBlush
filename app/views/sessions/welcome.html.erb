@@ -13,18 +13,28 @@
     <%= render "shared/bulk_happy" %>
   </div>
 
-  <table class = "table table-hover text-left">
-    <% @posts.each do |post| %>
-      <tr class= "post-wrapper"  >
-        <% if post.feed.provider == "Twitter" %>
-          <%= render "feeds/twitter_post", object: post %>
-        <% elsif post.feed.provider == "Vimeo" %>
-          <%= render "feeds/vimeo_post", object: post %>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
+
+<table id="posts" class = "table table-hover text-left">
+  <% @posts.each_with_index do |post, idx| %>
+    <tr  class= "post-wrapper"  id="idx<%=idx%>">
+      <% if post.feed.provider == "Twitter" %>
+        <%= render "feeds/twitter_post", object: post %>
+
+      <% elsif post.feed.provider == "Vimeo" %>
+      <%= render "feeds/vimeo_post", object: post %>
+      <% end %>
+    </tr>
+
+
+
+
+
+  <% end %>
+
+
 
 <% else %>
   <%= render "shared/bulk_happy" %>
 <% end %>
+</table>
+<%= will_paginate @posts, previous_label: h("<"), next_label: h(">") %>
