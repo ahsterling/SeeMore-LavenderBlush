@@ -73,7 +73,7 @@ ul {
 }
 
 .twitter-bird {
-  background-color: lightblue;
+  background-color: rgb(0, 172, 237);
 }
 
 .vimeo-v {
@@ -152,8 +152,9 @@ body nav,
 #search-bar {
   display: block;
   height: auto;
-  background-color: rgb(245,0,227);
-  color: white;
+  overflow: hidden;
+  background-color: #FD95DC;
+  color: purple;
   margin-top: 70px;
   margin-left: 0;
   padding-top: 10px;
