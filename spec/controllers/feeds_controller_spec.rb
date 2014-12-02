@@ -96,4 +96,13 @@ describe FeedsController do
 
     end
   end
+
+  describe 'POST #bulk_happy' do
+
+    it 'redirects to welcome_path' do
+      post :bulk_happy, nil, session_hash
+      expect(response).to redirect_to(welcome_path)
+    end
+
+  end
 end
